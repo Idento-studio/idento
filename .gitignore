@@ -1,0 +1,16 @@
+# PROJECT-BRIEF.md is de INGEVULDE intakefiche van de klant. Die blijft
+# bewust lokaal: de klantrepo's zijn publiek, dus alles wat hier gecommit
+# wordt is voor iedereen leesbaar op github.com — inclusief prijsafspraken,
+# de concurrentenlijst en je interne notities.
+#
+# Het bestand blijft wél gewoon in je projectmap staan, dus Claude Code kan
+# het lezen. Git negeert het enkel.
+#
+# Bewaar je exemplaar daarnaast buiten de repo (bv. in je klantenmap of op
+# je drive), want doordat git het niet volgt, is er ook geen back-up van.
+PROJECT-BRIEF.md
+
+# Windows- en macOS-rommel die per ongeluk mee zou reizen
+Thumbs.db
+desktop.ini
+.DS_Store

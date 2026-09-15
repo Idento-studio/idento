@@ -1,0 +1,565 @@
+<!--
+  ══════════════════════════════════════════════════════════════════════════
+  IDENTO WEBSITE STARTER — homepage
+  Alles tussen vierkante haken is een placeholder die je per klant invult.
+  De antwoorden komen uit de ingevulde PROJECT-BRIEF.md (zie de blanco fiche
+  in project-intake.md). Zoek in de repo op "[" om te zien wat nog open is;
+  project-kickoff-prompt.md bevat de prompt die dit in een keer invult.
+
+  Bij koppeling van het echte domein: vervang overal https://[DOMEIN]/ door
+  de echte URL — hier in de link/meta-tags, in de JSON-LD onderaan de head,
+  en in /sitemap.xml en /robots.txt.
+  ══════════════════════════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[BEDRIJFSNAAM] — [KORTE BESCHRIJVING]</title>
+  <meta name="description" content="[META-BESCHRIJVING: 1 zin van max 155 tekens die de zaak samenvat.]">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://[DOMEIN]/">
+  <meta name="theme-color" content="#33422e">
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn...) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="[BEDRIJFSNAAM]">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:title" content="[BEDRIJFSNAAM] — [KORTE BESCHRIJVING]">
+  <meta property="og:description" content="[META-BESCHRIJVING]">
+  <meta property="og:url" content="https://[DOMEIN]/">
+  <meta property="og:image" content="https://[DOMEIN]/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="[OG-AFBEELDING ALT-TEKST]">
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="[BEDRIJFSNAAM] — [KORTE BESCHRIJVING]">
+  <meta name="twitter:description" content="[META-BESCHRIJVING]">
+  <meta name="twitter:image" content="https://[DOMEIN]/assets/img/og-image.jpg">
+
+  <!-- Favicons.
+       favicon.ico en assets/img/favicon.svg zitten in deze template als
+       neutrale placeholder. Nog toe te voegen per klant:
+         assets/img/apple-touch-icon.png   (180x180)
+         assets/img/icon-192.png           (PWA-manifest)
+         assets/img/icon-512.png           (PWA-manifest)
+         assets/img/og-image.jpg           (1200x630, social sharing) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: preconnect + non-blocking load (print-media trick), met
+       noscript-fallback. Andere fonts per klant? Pas ze hier én in
+       brand.css (--font-display / --font-body) samen aan. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Volgorde is belangrijk: brand → layout → components → pagina -->
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+
+  <!-- JSON-LD: structured data voor Google. Zelfde veldstructuur als een
+       ingevuld project, maar met placeholders. Kies bij @type het passende
+       schema.org-type voor de klant: LocalBusiness, Restaurant, Store,
+       ProfessionalService, Dentist, HairSalon... -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://[DOMEIN]/#bedrijf",
+    "name": "[BEDRIJFSNAAM]",
+    "image": ["https://[DOMEIN]/assets/img/og-image.jpg"],
+    "url": "https://[DOMEIN]/",
+    "telephone": "[TELEFOON-E164]",
+    "email": "[EMAIL]",
+    "priceRange": "[PRIJSKLASSE]",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[STRAAT EN NUMMER]",
+      "postalCode": "[POSTCODE]",
+      "addressLocality": "[GEMEENTE]",
+      "addressCountry": "BE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 0.0,
+      "longitude": 0.0
+    },
+    "sameAs": [
+      "https://[DOMEIN]/",
+      "[SOCIAL-MEDIA-URL]"
+    ],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Ga naar inhoud</a>
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill" id="progressFill"></div></div>
+
+<nav class="nav" aria-label="Hoofdnavigatie">
+  <div class="wrap nav-inner">
+    <a href="#hero" class="brand-mark">
+      <!-- Placeholder-logo. Vervang dit svg-blok door het logo van de klant,
+           of zet er een img met het logobestand in de plaats. -->
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 3C10 8 6 13.5 6 19a10 10 0 0 0 20 0c0-5.5-4-11-10-16Z" stroke="#33422e" stroke-width="1.6"/>
+        <path d="M16 9v18M16 14c-2.4-2-4.6-2-6.4-.6M16 19c2.8-2.2 5.4-2.2 7.6-.4" stroke="#c98a34" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      [BEDRIJFSNAAM]
+    </a>
+    <div class="nav-cta">
+      <div class="nav-links-list">
+        <a href="#diensten">[NAV 1]</a>
+        <a href="#ervaringen">[NAV 2]</a>
+        <a href="#faq">Veelgestelde vragen</a>
+        <a href="contact/">Contact</a>
+      </div>
+      <a href="#contact-formulier" class="btn btn-primary nav-pulse-btn">[CTA-TEKST]</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-card reveal">
+      <span class="eyebrow">[EYEBROW: type zaak · gemeente]</span>
+      <h1>[HERO-TITEL: één krachtige zin die de belofte van de zaak samenvat.]</h1>
+      <p class="lead">[HERO-INTRO: twee à drie zinnen over wie de klant is, wat hij aanbiedt en waarom mensen bij hem komen.]</p>
+      <div class="hero-actions">
+        <a href="#contact-formulier" class="btn btn-primary">
+          [CTA-TEKST]
+        </a>
+        <a href="#diensten" class="btn btn-ghost">[SECUNDAIRE CTA]</a>
+      </div>
+      <div class="hero-chips">
+        <div class="hero-chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-7.4 7-12.4A7 7 0 0 0 5 8.6C5 13.6 12 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="8.6" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+          [USP 1]
+        </div>
+        <div class="hero-chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17V9l8-5 8 5v8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5"/><path d="M2 21h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          [USP 2]
+        </div>
+        <div class="hero-chip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l1.6 12.4A2 2 0 0 0 7.6 18h8.8a2 2 0 0 0 2-1.8L20 4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 4v6M12 4v8M16 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 18v3" stroke="currentColor" stroke-width="1.5"/></svg>
+          [USP 3]
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal" id="heroVisual">
+      <!-- HERO-AFBEELDING — nu een lege gradient-placeholder.
+           .hero-photo heeft in home.css al een merkgradient als achtergrond,
+           dus dit blok is meteen presentabel zonder dat er een bestand is.
+
+           Een echte foto erin? Plaats een picture-element binnen de div
+           hieronder (assets/img/hero.avif / .webp / .jpg, ca. 1100x693),
+           met avif en webp als source en jpg als img-fallback, plus
+           loading="eager" en fetchpriority="high".
+
+           De parallax in site.js zoekt een img binnen #heroPhoto en doet
+           gewoon niets zolang die er niet is. -->
+      <div class="hero-photo" id="heroPhoto"></div>
+      <div class="hero-booking-card">
+        <div class="hero-booking-top">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l1.6 12.4A2 2 0 0 0 7.6 18h8.8a2 2 0 0 0 2-1.8L20 4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 4v6M12 4v8M16 4v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>[BLOKTITEL]</span>
+        </div>
+        <p>[BLOKTEKST: één zin die de bezoeker over de drempel helpt.]</p>
+        <a href="#contact-formulier" class="btn btn-primary">[CTA-TEKST]</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- ══ DIENSTEN / PRODUCTEN ══
+       Drie kaarten als startpunt. Per klant vul je titel, prijs en
+       beschrijving in. Meer of minder dan drie? Kopieer of verwijder een
+       article.dish-card; het grid schikt zich automatisch.
+
+       De gekleurde vlakken komen uit .dish-visual-1/2/3 in home.css. Wil je
+       er foto's in, plaats dan een img binnen .dish-visual met
+       loading="lazy". De CSS zorgt zelf voor object-fit: cover in een vast
+       3:2-kader, dus staande én liggende bronfoto's krijgen dezelfde
+       hoogte en de kaarten blijven gelijk. -->
+  <section class="section" id="diensten">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">[EYEBROW]</span>
+        <h2>[SECTIETITEL: waar de klant trots op is]</h2>
+        <p>[SECTIE-INTRO: twee zinnen die het aanbod kaderen.]</p>
+      </div>
+      <div class="dish-grid">
+        <article class="dish-card reveal">
+          <div class="dish-visual dish-visual-1"></div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Dienst/Product 1</h3>
+              <span class="dish-price">[PRIJS]</span>
+            </div>
+            <p>[BESCHRIJVING 1: twee à drie zinnen over wat dit is en waarom het de moeite is.]</p>
+          </div>
+        </article>
+
+        <article class="dish-card reveal">
+          <div class="dish-visual dish-visual-2"></div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Dienst/Product 2</h3>
+              <span class="dish-price">[PRIJS]</span>
+            </div>
+            <p>[BESCHRIJVING 2]</p>
+          </div>
+        </article>
+
+        <article class="dish-card reveal">
+          <div class="dish-visual dish-visual-3"></div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Dienst/Product 3</h3>
+              <span class="dish-price">[PRIJS]</span>
+            </div>
+            <p>[BESCHRIJVING 3]</p>
+          </div>
+        </article>
+      </div>
+      <p class="dish-note reveal">[AANVULLENDE NOOT: optionele zin over wat er nog meer is. Verwijder dit hele p-element als het niet van toepassing is.]</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="zo-werkt-het">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">[EYEBROW]</span>
+        <h2>[SECTIETITEL: hoe het werkt, in drie stappen]</h2>
+        <p>[SECTIE-INTRO]</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 2.5 3.5 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10.5 20 4 13.5 4 5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="step-num">STAP 01</span>
+          <h3>[STAP 1 TITEL]</h3>
+          <p>[STAP 1 TEKST]</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="step-num">STAP 02</span>
+          <h3>[STAP 2 TITEL]</h3>
+          <p>[STAP 2 TEKST]</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v7c0 1.7 1.3 3 3 2.8V21M17 3v18M17 3c-2.5 0-4 1.8-4 5s1.5 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="step-num">STAP 03</span>
+          <h3>[STAP 3 TITEL]</h3>
+          <p>[STAP 3 TEKST]</p>
+        </div>
+      </div>
+      <!-- data-count-to is het eindgetal waar de teller naartoe animeert.
+           Zet daar het echte cijfer; de tekst ertussen is wat een bezoeker
+           zonder JavaScript ziet. -->
+      <div class="stats-row reveal">
+        <div class="stat-item">
+          <span class="stat-num" data-count-to="0" data-suffix="+">0+</span>
+          <span class="stat-label">[CIJFER 1 LABEL]</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count-to="0">0</span>
+          <span class="stat-label">[CIJFER 2 LABEL]</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-count-to="0">0</span>
+          <span class="stat-label">[CIJFER 3 LABEL]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Actiebalk. Geen aanbieding bij deze klant? Verwijder deze hele wrap-div. -->
+  <div class="wrap">
+    <div class="offer-bar reveal">
+      <div class="offer-bar-text">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v13M12 8c-1.5-3-4-4.5-5.5-3S5 8.5 8 9M12 8c1.5-3 4-4.5 5.5-3S19 8.5 16 9" stroke="#faf8f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="8" width="16" height="4.5" rx="1" stroke="#faf8f2" stroke-width="1.6"/><path d="M5 12.5h14V19a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6.5Z" stroke="#faf8f2" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span><strong>[AANBOD]</strong> [AANBOD-VOORWAARDE] — vermeld <code>[ACTIECODE]</code>.</span>
+      </div>
+      <a href="#contact-formulier" class="btn btn-outline" style="background:rgba(250,248,242,0.14); border-color:rgba(250,248,242,0.5); color:var(--linen-50);">[CTA-TEKST]</a>
+    </div>
+  </div>
+
+  <!-- ══ ERVARINGEN ══
+       Gebruik hier alleen echte, herleidbare quotes. Verzonnen reviews zijn
+       in België een misleidende handelspraktijk. Heeft de klant nog geen
+       reviews? Verwijder dan deze hele section. -->
+  <section class="section section-alt" id="ervaringen">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">[EYEBROW]</span>
+        <h2>[SECTIETITEL]</h2>
+        <p>[SECTIE-INTRO]</p>
+      </div>
+      <div class="quote-row">
+        <div class="quote-card reveal">
+          <div class="stars" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+          </div>
+          <p class="quote-text">"[QUOTE 1]"</p>
+          <div class="quote-attr"><span>[AUTEUR 1]</span><span class="dot"></span><span>[BRON · SCORE]</span></div>
+        </div>
+        <div class="quote-card reveal">
+          <div class="stars" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
+          </div>
+          <p class="quote-text">"[QUOTE 2]"</p>
+          <div class="quote-attr"><span>[AUTEUR 2]</span><span class="dot"></span><span>[BRON · SCORE]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="garantie">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">[EYEBROW]</span>
+        <h2>[SECTIETITEL: de belofte aan de klant]</h2>
+        <p>[SECTIE-INTRO]</p>
+      </div>
+      <div class="guarantee-grid">
+        <div class="guarantee-item reveal">
+          <div class="guarantee-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#faf8f2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3>[BELOFTE 1 TITEL]</h3>
+            <p>[BELOFTE 1 TEKST]</p>
+          </div>
+        </div>
+        <div class="guarantee-item reveal">
+          <div class="guarantee-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#faf8f2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3>[BELOFTE 2 TITEL]</h3>
+            <p>[BELOFTE 2 TEKST]</p>
+          </div>
+        </div>
+        <div class="guarantee-item reveal">
+          <div class="guarantee-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#faf8f2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3>[BELOFTE 3 TITEL]</h3>
+            <p>[BELOFTE 3 TEKST]</p>
+          </div>
+        </div>
+        <div class="guarantee-item reveal">
+          <div class="guarantee-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#faf8f2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3>[BELOFTE 4 TITEL]</h3>
+            <p>[BELOFTE 4 TEKST]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Veelgestelde vragen</span>
+        <h2>[SECTIETITEL]</h2>
+        <p>[SECTIE-INTRO]</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>[VRAAG 1]<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <p>[ANTWOORD 1]</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>[VRAAG 2]<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <p>[ANTWOORD 2]</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>[VRAAG 3]<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <p>[ANTWOORD 3]</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>[VRAAG 4]<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <p>[ANTWOORD 4]</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ AANVRAAGFORMULIER ══
+       De velden datum en aantal personen zijn een voorbeeld van een aanvraag
+       met extra gegevens. Verwijder wat niet past: de validatie in
+       contact-form.js kent regels voor naam, email, telefoon, datum,
+       personen en bericht, en past enkel toe wat effectief aanwezig is. -->
+  <section class="section" id="contact-formulier">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">[EYEBROW]</span>
+        <h2>[SECTIETITEL]</h2>
+        <p>[SECTIE-INTRO]</p>
+      </div>
+      <div class="contact-grid">
+        <form class="form-card reveal" id="reserveForm" data-ajax-form>
+          <div class="form-row">
+            <div class="field">
+              <label for="naam">Naam</label>
+              <input type="text" id="naam" name="naam" aria-describedby="naam-error" placeholder="Voor- en achternaam" autocomplete="name" required>
+              <span class="field-error" id="naam-error"></span>
+            </div>
+            <div class="field">
+              <label for="telefoon">Telefoon</label>
+              <input type="tel" id="telefoon" name="telefoon" aria-describedby="telefoon-error" placeholder="04XX XX XX XX" autocomplete="tel" inputmode="tel" required>
+              <span class="field-error" id="telefoon-error"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" aria-describedby="email-error" placeholder="jouw@email.be" autocomplete="email" inputmode="email" required>
+              <span class="field-error" id="email-error"></span>
+            </div>
+            <div class="field">
+              <label for="datum">Gewenste datum</label>
+              <input type="date" id="datum" name="datum" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="personen">Aantal personen</label>
+            <input type="number" id="personen" name="personen" min="1" placeholder="2" required>
+          </div>
+          <div class="field">
+            <label for="bericht">Bericht (optioneel)</label>
+            <textarea id="bericht" name="bericht" rows="3" placeholder="[VOORBEELDTEKST in het invulveld]"></textarea>
+          </div>
+
+          <!-- Honeypot tegen spambots. Laat leeg — mensen zien dit veld niet. -->
+          <div class="field-trap" aria-hidden="true">
+            <label for="website-hero">Website</label>
+            <input type="text" id="website-hero" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn btn-primary">[CTA-TEKST]</button>
+          <p class="form-hint">[FORMULIER-NOOT: wat de bezoeker mag verwachten na het versturen.]</p>
+          <div class="form-status" id="reserveFormStatus" aria-live="polite"></div>
+          <noscript>
+            <p class="form-status is-visible is-error">
+              JavaScript staat uit — bel ons liever op <a href="tel:[TELEFOON-E164]">[TELEFOON]</a>
+              of mail naar <a href="mailto:[EMAIL]">[EMAIL]</a>.
+            </p>
+          </noscript>
+        </form>
+
+        <div class="info-card reveal">
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-7.4 7-12.4A7 7 0 0 0 5 8.6C5 13.6 12 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="8.6" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+            <div>
+              <h4>Adres</h4>
+              <p>[ADRES]</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 2.5 3.5 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10.5 20 4 13.5 4 5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Telefoon</h4>
+              <p><a href="tel:[TELEFOON-E164]">[TELEFOON]</a></p>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18v12H3V6Z" stroke="currentColor" stroke-width="1.5"/><path d="m3 7 9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>E-mail</h4>
+              <p><a href="mailto:[EMAIL]">[EMAIL]</a></p>
+            </div>
+          </div>
+          <div class="info-row" style="align-items:flex-start;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/></svg>
+            <div style="width:100%;">
+              <h4>Openingsuren</h4>
+              <!-- [OPENINGSUREN] — één tr per dag of dagbereik. Werkt de
+                   klant met seizoenen, gebruik dan een th-rij als kop. -->
+              <table class="hours-table">
+                <tr><th>[PERIODE]</th><td></td></tr>
+                <tr><td>[DAGEN]</td><td>[UREN]</td></tr>
+                <tr><td>[DAGEN]</td><td>gesloten</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span><strong>[BEDRIJFSNAAM]</strong> — [ADRES]</span>
+    <span>[TELEFOON]</span>
+    <span class="footer-legal"><a href="privacy/">Privacybeleid</a> · <a href="#" data-cookie-settings>Cookie-instellingen</a></span>
+  </div>
+</footer>
+
+<!-- Vaste balk die verschijnt zodra de bezoeker de hero voorbij scrollt.
+     Niet nodig bij deze klant? Verwijder deze sticky-bar-div. -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="wrap sticky-bar-inner">
+    <div class="sticky-bar-msg">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l1.6 12.4A2 2 0 0 0 7.6 18h8.8a2 2 0 0 0 2-1.8L20 4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 4v6M12 4v8M16 4v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span class="long"><b>[BALK-NADRUK]</b>&nbsp;[BALK-TEKST] —</span>
+      <span>[BALK-SLOT]</span>
+    </div>
+    <a href="#contact-formulier" class="btn btn-primary">[CTA-TEKST]</a>
+  </div>
+</div>
+
+<!-- Schuift éénmaal per bezoek binnen, wegklikbaar.
+     Niet nodig? Verwijder deze nudge-div. -->
+<div class="nudge" id="nudge">
+  <button type="button" class="nudge-close" id="nudgeClose" aria-label="Sluiten">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <strong>[NUDGE-TITEL]</strong>
+  <p>[NUDGE-TEKST]</p>
+  <a href="#contact-formulier" class="btn btn-primary">[CTA-TEKST]</a>
+</div>
+
+<script src="assets/js/cookie-consent.js" data-privacy-url="privacy/" defer></script>
+<script src="assets/js/analytics.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/contact-form.js" defer></script>
+</body>
+</html>
