@@ -1,8 +1,8 @@
 /* ==========================================================================
    site.js — progressive enhancement voor de hele site.
    Alles is optioneel: zonder JS blijft de pagina volledig leesbaar.
-   Home-specifieke hooks (sticky bar, nudge, hero-parallax) doen niets
-   op pagina's waar die elementen niet bestaan.
+   Pagina-specifieke hooks doen niets op pagina's waar die elementen
+   niet bestaan.
    ========================================================================== */
 (function () {
   document.documentElement.classList.add('js');
@@ -48,19 +48,12 @@
     counters.forEach(function (el) { countIo.observe(el); });
   }
 
-  // Thin scroll progress bar
   var progressFill = document.getElementById('progressFill');
+  var navEl = document.querySelector('.nav');
   var heroEl = document.getElementById('hero');
   var heroPhoto = document.getElementById('heroPhoto');
   var heroImg = heroPhoto ? heroPhoto.querySelector('img') : null;
   var stickyBar = document.getElementById('stickyBar');
-  // Referentiepunt voor de nudge: die schuift binnen zodra de bezoeker
-    // voorbij deze sectie is. Hernoem je #diensten in de HTML, pas dit
-    // dan mee aan.
-    var nudgeAnchorEl = document.getElementById('diensten');
-  var nudgeEl = document.getElementById('nudge');
-  var nudgeShown = false;
-  var nudgeDismissed = false;
   var ticking = false;
 
   function onScroll() {
@@ -70,23 +63,15 @@
       var doc = document.documentElement;
       var scrollTop = window.scrollY || doc.scrollTop;
       var scrollable = (doc.scrollHeight - doc.clientHeight) || 1;
+
       if (progressFill) progressFill.style.transform = 'scaleX(' + Math.min(scrollTop / scrollable, 1) + ')';
+      if (navEl) navEl.classList.toggle('is-stuck', scrollTop > 10);
 
       if (heroEl) {
         var heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
         if (stickyBar) stickyBar.classList.toggle('is-visible', scrollTop > heroBottom - 120);
-
         if (!reducedMotion && heroImg && scrollTop < heroBottom) {
-          var shift = Math.min(scrollTop * 0.08, 28);
-          heroImg.style.transform = 'translateY(' + shift + 'px)';
-        }
-      }
-
-      if (nudgeAnchorEl && !nudgeShown && !nudgeDismissed) {
-        var nudgeAnchorBottom = nudgeAnchorEl.offsetTop + nudgeAnchorEl.offsetHeight;
-        if (scrollTop > nudgeAnchorBottom) {
-          nudgeShown = true;
-          if (nudgeEl) nudgeEl.classList.add('is-visible');
+          heroImg.style.transform = 'translateY(' + Math.min(scrollTop * 0.08, 28) + 'px)';
         }
       }
       ticking = false;
@@ -94,12 +79,4 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  var nudgeClose = document.getElementById('nudgeClose');
-  if (nudgeClose && nudgeEl) {
-    nudgeClose.addEventListener('click', function () {
-      nudgeDismissed = true;
-      nudgeEl.classList.remove('is-visible');
-    });
-  }
 })();

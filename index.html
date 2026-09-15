@@ -1,65 +1,40 @@
-<!--
-  ══════════════════════════════════════════════════════════════════════════
-  IDENTO WEBSITE STARTER — homepage
-  Alles tussen vierkante haken is een placeholder die je per klant invult.
-  De antwoorden komen uit de ingevulde PROJECT-BRIEF.md (zie de blanco fiche
-  in project-intake.md). Zoek in de repo op "[" om te zien wat nog open is;
-  project-kickoff-prompt.md bevat de prompt die dit in een keer invult.
-
-  Bij koppeling van het echte domein: vervang overal https://[DOMEIN]/ door
-  de echte URL — hier in de link/meta-tags, in de JSON-LD onderaan de head,
-  en in /sitemap.xml en /robots.txt.
-  ══════════════════════════════════════════════════════════════════════════
--->
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[BEDRIJFSNAAM] — [KORTE BESCHRIJVING]</title>
-  <meta name="description" content="[META-BESCHRIJVING: 1 zin van max 155 tekens die de zaak samenvat.]">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Idento — websites voor zelfstandigen en KMO's</title>
+  <meta name="description" content="Idento bouwt WordPress-websites voor zelfstandigen en KMO's in Vlaams-Brabant. Snel, vindbaar in Google en herkenbaar als jouw zaak. Bereken meteen je richtprijs.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://[DOMEIN]/">
-  <meta name="theme-color" content="#33422e">
+  <link rel="canonical" href="https://idento.be/">
+  <meta name="theme-color" content="#070D18">
 
-  <!-- Open Graph (Facebook, WhatsApp, LinkedIn...) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="[BEDRIJFSNAAM]">
+  <meta property="og:site_name" content="Idento">
   <meta property="og:locale" content="nl_BE">
-  <meta property="og:title" content="[BEDRIJFSNAAM] — [KORTE BESCHRIJVING]">
-  <meta property="og:description" content="[META-BESCHRIJVING]">
-  <meta property="og:url" content="https://[DOMEIN]/">
-  <meta property="og:image" content="https://[DOMEIN]/assets/img/og-image.jpg">
+  <meta property="og:title" content="Idento — websites voor zelfstandigen en KMO's">
+  <meta property="og:description" content="Je zaak heeft al een identiteit. Nu ook online. WordPress-sites die snel laden, scoren in Google en werken op elk scherm.">
+  <meta property="og:url" content="https://idento.be/">
+  <meta property="og:image" content="https://idento.be/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="[OG-AFBEELDING ALT-TEKST]">
 
   <!-- Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="[BEDRIJFSNAAM] — [KORTE BESCHRIJVING]">
-  <meta name="twitter:description" content="[META-BESCHRIJVING]">
-  <meta name="twitter:image" content="https://[DOMEIN]/assets/img/og-image.jpg">
+  <meta name="twitter:title" content="Idento — websites voor zelfstandigen en KMO's">
+  <meta name="twitter:description" content="Je zaak heeft al een identiteit. Nu ook online.">
+  <meta name="twitter:image" content="https://idento.be/assets/img/og-image.jpg">
 
-  <!-- Favicons.
-       favicon.ico en assets/img/favicon.svg zitten in deze template als
-       neutrale placeholder. Nog toe te voegen per klant:
-         assets/img/apple-touch-icon.png   (180x180)
-         assets/img/icon-192.png           (PWA-manifest)
-         assets/img/icon-512.png           (PWA-manifest)
-         assets/img/og-image.jpg           (1200x630, social sharing) -->
+  <!-- Favicons -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
-  <!-- Fonts: preconnect + non-blocking load (print-media trick), met
-       noscript-fallback. Andere fonts per klant? Pas ze hier én in
-       brand.css (--font-display / --font-body) samen aan. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
 
   <!-- Volgorde is belangrijk: brand → layout → components → pagina -->
   <link rel="stylesheet" href="assets/css/brand.css">
@@ -67,499 +42,398 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages/home.css">
 
-  <!-- JSON-LD: structured data voor Google. Zelfde veldstructuur als een
-       ingevuld project, maar met placeholders. Kies bij @type het passende
-       schema.org-type voor de klant: LocalBusiness, Restaurant, Store,
-       ProfessionalService, Dentist, HairSalon... -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://[DOMEIN]/#bedrijf",
-    "name": "[BEDRIJFSNAAM]",
-    "image": ["https://[DOMEIN]/assets/img/og-image.jpg"],
-    "url": "https://[DOMEIN]/",
-    "telephone": "[TELEFOON-E164]",
-    "email": "[EMAIL]",
-    "priceRange": "[PRIJSKLASSE]",
+    "@type": "ProfessionalService",
+    "@id": "https://idento.be/#bedrijf",
+    "name": "Idento",
+    "description": "Webdesignstudio voor zelfstandigen en KMO's: WordPress-websites, logo en huisstijl.",
+    "url": "https://idento.be/",
+    "email": "info@idento.be",
+    "telephone": "+32469438546",
+    "priceRange": "€€",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "[STRAAT EN NUMMER]",
-      "postalCode": "[POSTCODE]",
-      "addressLocality": "[GEMEENTE]",
+      "streetAddress": "Hoesnaek 20",
+      "postalCode": "1670",
+      "addressLocality": "Pepingen",
       "addressCountry": "BE"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 0.0,
-      "longitude": 0.0
-    },
-    "sameAs": [
-      "https://[DOMEIN]/",
-      "[SOCIAL-MEDIA-URL]"
-    ],
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }
+    "areaServed": "Vlaanderen",
+    "founder": [
+      { "@type": "Person", "name": "Jens De Koster" },
+      { "@type": "Person", "name": "Jarne De Koster" }
     ]
   }
   </script>
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Naar de inhoud</a>
 
-<a class="skip-link" href="#main-content">Ga naar inhoud</a>
+  <div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill" id="progressFill"></div></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="spot" aria-hidden="true" style="position:fixed;width:640px;height:640px;left:0;top:0;z-index:0;pointer-events:none;display:none;background:radial-gradient(circle,rgba(0,232,255,.075) 0%,rgba(0,232,255,0) 62%);transform:translate(-9999px,-9999px)"></div>
 
-<div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill" id="progressFill"></div></div>
-
-<nav class="nav" aria-label="Hoofdnavigatie">
-  <div class="wrap nav-inner">
-    <a href="#hero" class="brand-mark">
-      <!-- Placeholder-logo. Vervang dit svg-blok door het logo van de klant,
-           of zet er een img met het logobestand in de plaats. -->
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path d="M16 3C10 8 6 13.5 6 19a10 10 0 0 0 20 0c0-5.5-4-11-10-16Z" stroke="#33422e" stroke-width="1.6"/>
-        <path d="M16 9v18M16 14c-2.4-2-4.6-2-6.4-.6M16 19c2.8-2.2 5.4-2.2 7.6-.4" stroke="#c98a34" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-      [BEDRIJFSNAAM]
-    </a>
-    <div class="nav-cta">
-      <div class="nav-links-list">
-        <a href="#diensten">[NAV 1]</a>
-        <a href="#ervaringen">[NAV 2]</a>
-        <a href="#faq">Veelgestelde vragen</a>
-        <a href="contact/">Contact</a>
-      </div>
-      <a href="#contact-formulier" class="btn btn-primary nav-pulse-btn">[CTA-TEKST]</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero" id="hero">
-  <div class="hero-mesh" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div class="hero-card reveal">
-      <span class="eyebrow">[EYEBROW: type zaak · gemeente]</span>
-      <h1>[HERO-TITEL: één krachtige zin die de belofte van de zaak samenvat.]</h1>
-      <p class="lead">[HERO-INTRO: twee à drie zinnen over wie de klant is, wat hij aanbiedt en waarom mensen bij hem komen.]</p>
-      <div class="hero-actions">
-        <a href="#contact-formulier" class="btn btn-primary">
-          [CTA-TEKST]
-        </a>
-        <a href="#diensten" class="btn btn-ghost">[SECUNDAIRE CTA]</a>
-      </div>
-      <div class="hero-chips">
-        <div class="hero-chip">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-7.4 7-12.4A7 7 0 0 0 5 8.6C5 13.6 12 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="8.6" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
-          [USP 1]
-        </div>
-        <div class="hero-chip">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17V9l8-5 8 5v8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5"/><path d="M2 21h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          [USP 2]
-        </div>
-        <div class="hero-chip">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l1.6 12.4A2 2 0 0 0 7.6 18h8.8a2 2 0 0 0 2-1.8L20 4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 4v6M12 4v8M16 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 18v3" stroke="currentColor" stroke-width="1.5"/></svg>
-          [USP 3]
+  <!-- ===================== NAV ===================== -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand-mark" href="/">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" stroke="#00E8FF" stroke-width="6.2" stroke-linecap="round" aria-hidden="true">
+          <path d="M29.5 73 V46.5 A20.5 20.5 0 0 1 70.5 46.5 V73"/>
+          <path d="M39 69 V48 A11 11 0 0 1 61 48 V69"/>
+          <path d="M50 69 V46"/>
+        </svg>
+        Idento
+      </a>
+      <div class="nav-links">
+        <nav class="nav-links-list" aria-label="Hoofdnavigatie">
+          <a href="#werk">Werk</a>
+          <a href="#aanpak">Aanpak</a>
+          <a href="#live">Live</a>
+          <a href="#prijs">Prijs</a>
+          <a href="#vragen">Vragen</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn nav-pulse-btn" href="#prijs">Bereken je prijs <span class="arw">&rarr;</span></a>
         </div>
       </div>
     </div>
+  </header>
 
-    <div class="hero-visual reveal" id="heroVisual">
-      <!-- HERO-AFBEELDING — nu een lege gradient-placeholder.
-           .hero-photo heeft in home.css al een merkgradient als achtergrond,
-           dus dit blok is meteen presentabel zonder dat er een bestand is.
+  <main id="main">
 
-           Een echte foto erin? Plaats een picture-element binnen de div
-           hieronder (assets/img/hero.avif / .webp / .jpg, ca. 1100x693),
-           met avif en webp als source en jpg als img-fallback, plus
-           loading="eager" en fetchpriority="high".
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+      <canvas id="field" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <p class="eyebrow reveal">Webdesign studio — Pepingen, BE</p>
 
-           De parallax in site.js zoekt een img binnen #heroPhoto en doet
-           gewoon niets zolang die er niet is. -->
-      <div class="hero-photo" id="heroPhoto"></div>
-      <div class="hero-booking-card">
-        <div class="hero-booking-top">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l1.6 12.4A2 2 0 0 0 7.6 18h8.8a2 2 0 0 0 2-1.8L20 4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 4v6M12 4v8M16 4v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span>[BLOKTITEL]</span>
+        <h1 class="h-xl" id="heroTitle">
+          <span class="ln"><span>Je zaak heeft al</span></span>
+          <span class="ln"><span>een <i class="sheen" style="font-style:normal">identiteit</i>.</span></span>
+          <span class="ln"><span>Nu ook online.</span></span>
+        </h1>
+
+        <div class="hero-row">
+          <p class="lead reveal">
+            WordPress-sites voor zelfstandigen en KMO's. Snel, vindbaar in Google,
+            en herkenbaar als jouw zaak — niet als een template.
+          </p>
+          <div class="hero-cta reveal">
+            <a class="btn btn-primary" href="#prijs">Bereken je prijs <span class="arw">&rarr;</span></a>
+            <a class="tlink" href="#werk">Bekijk het werk</a>
+          </div>
         </div>
-        <p>[BLOKTEKST: één zin die de bezoeker over de drempel helpt.]</p>
-        <a href="#contact-formulier" class="btn btn-primary">[CTA-TEKST]</a>
+
+        <p class="scroll-cue reveal"><span class="v"></span>Scroll</p>
+      </div>
+    </section>
+
+    <!-- ===================== TICKER ===================== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="tk" id="ticker">
+        <span>WordPress</span><span>Elementor</span><span>Core Web Vitals</span><span>Technische SEO</span><span>Responsive</span><span>Hosting &amp; DNS</span><span>Copywriting</span><span>Huisstijl</span>
+        <span>WordPress</span><span>Elementor</span><span>Core Web Vitals</span><span>Technische SEO</span><span>Responsive</span><span>Hosting &amp; DNS</span><span>Copywriting</span><span>Huisstijl</span>
       </div>
     </div>
-  </div>
-</header>
 
-<main id="main-content">
-  <!-- ══ DIENSTEN / PRODUCTEN ══
-       Drie kaarten als startpunt. Per klant vul je titel, prijs en
-       beschrijving in. Meer of minder dan drie? Kopieer of verwijder een
-       article.dish-card; het grid schikt zich automatisch.
+    <!-- ===================== STATEMENT ===================== -->
+    <section class="section">
+      <div class="wrap stmt-grid">
+        <h2 class="stmt" data-words data-hi="8,9,10">Je site is het eerste wat een klant van je ziet. Vaak ook het enige.</h2>
+        <p class="stmt-note reveal">
+          Een trage site met foto's van vijf jaar geleden zegt evenveel over je zaak
+          als een vuile etalage. Wij zorgen dat online klopt met wat je in het echt levert.
+        </p>
+      </div>
+    </section>
 
-       De gekleurde vlakken komen uit .dish-visual-1/2/3 in home.css. Wil je
-       er foto's in, plaats dan een img binnen .dish-visual met
-       loading="lazy". De CSS zorgt zelf voor object-fit: cover in een vast
-       3:2-kader, dus staande én liggende bronfoto's krijgen dezelfde
-       hoogte en de kaarten blijven gelijk. -->
-  <section class="section" id="diensten">
+    <!-- ===================== 01 · AANPAK ===================== -->
+    <section class="section light bleed-top" id="aanpak">
+      <span class="seam seam-top" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="h-lg reveal" style="max-width:13ch">Drie dingen waar we niet op toegeven</h2>
+          <p class="mono reveal"><span class="c">01</span> — Aanpak</p>
+        </div>
+
+        <div class="rows">
+          <article class="row reveal">
+            <span class="idx">A</span>
+            <h3>Design op maat</h3>
+            <p>Geen template waar we je logo in droppen. We vertrekken van je zaak, je klanten en je toon — en ontwerpen eerst in Figma, vóór er één regel code is.</p>
+            <span class="go" aria-hidden="true">&rarr;</span>
+          </article>
+          <article class="row reveal">
+            <span class="idx">B</span>
+            <h3>Snelheid &amp; vindbaarheid</h3>
+            <p>Een mooie site die niemand vindt is een dure folder. Techniek, snelheid en SEO zitten van bij de start in het ontwerp, niet als plugin achteraf.</p>
+            <span class="go" aria-hidden="true">&rarr;</span>
+          </article>
+          <article class="row reveal">
+            <span class="idx">C</span>
+            <h3>Techniek uit je handen</h3>
+            <p>Hosting, domein, mailboxen, back-ups, updates. Jarne regelt het achter de schermen — jij merkt er niets van, en dat is precies de bedoeling.</p>
+            <span class="go" aria-hidden="true">&rarr;</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 02 · LIVE CASE ===================== -->
+    <section class="section light bleed-bottom" id="live">
+      <span class="seam seam-bottom" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="h-lg reveal" style="max-width:11ch">Eén ontwerp. Elk scherm.</h2>
+          <p class="mono reveal"><span class="c">02</span> — Responsive</p>
+        </div>
+
+        <div class="demo">
+          <div class="demo-side reveal">
+            <span class="demo-tag"><span class="live-dot"></span>Live</span>
+            <h3 class="case-title" id="caseTitle">Korst — bedrijfscatering, regio Gent</h3>
+            <p id="caseDesc">Korst levert dagverse ontbijt-, lunch- en aperoboxen aan kantoren rond Gent.</p>
+            <ul class="case-facts" id="caseFacts"></ul>
+
+            <div class="case-nav">
+              <button class="btn" id="caseNext" type="button">Toon andere case <span class="arw">&rarr;</span></button>
+              <span class="case-count" id="caseCount">01 / 02</span>
+            </div>
+
+            <div class="case-split"></div>
+
+            <div class="dev-chips" role="group" aria-label="Kies een schermformaat">
+              <button class="dchip is-on" type="button" data-device="desktop">Desktop</button>
+              <button class="dchip" type="button" data-device="tablet">Tablet</button>
+              <button class="dchip" type="button" data-device="mobile">Mobiel</button>
+            </div>
+            <div class="readout">
+              <span class="mono">Viewport</span>
+              <span class="w" id="viewportWidth">1440 px</span>
+            </div>
+          </div>
+
+          <div class="stage">
+            <div class="frame is-desktop" id="caseFrame">
+              <div class="bezel">
+                <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span class="url">idento-studio.github.io/korst/</span></div>
+                <div class="vp" id="caseViewport">
+                  <div class="notch" aria-hidden="true"></div>
+                  <iframe id="caseSite" title="Live voorbeeld van een gerealiseerd project" loading="lazy" referrerpolicy="no-referrer"></iframe>
+                </div>
+              </div>
+              <p class="fallback">Draaiende site in een echte viewport — <a id="caseLink" href="https://idento-studio.github.io/korst/" target="_blank" rel="noopener">open de volledige site</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 03 · TRAJECT ===================== -->
+    <section class="section" id="traject">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="h-lg reveal" style="max-width:13ch">Vijf stappen. Je weet altijd waar we zitten.</h2>
+          <p class="mono reveal"><span class="c">03</span> — Traject</p>
+        </div>
+
+        <div class="rows">
+          <article class="row reveal"><span class="idx">01</span><h3>Kennismaking</h3>
+            <p>Een uur over je zaak en wat de site moet opleveren. Daarna weet je wat het kost.</p><span class="meta">Week 0 · gratis</span></article>
+          <article class="row reveal"><span class="idx">02</span><h3>Structuur &amp; teksten</h3>
+            <p>Welke pagina's er komen en wat erop staat. Wij schrijven, of herwerken wat je hebt.</p><span class="meta">Week 1</span></article>
+          <article class="row reveal"><span class="idx">03</span><h3>Ontwerp</h3>
+            <p>Je ziet het volledige design vóór we bouwen. Twee feedbackrondes zitten in de prijs.</p><span class="meta">Week 2 – 3</span></article>
+          <article class="row reveal"><span class="idx">04</span><h3>Bouw</h3>
+            <p>WordPress, snelheid, SEO, formulieren. Je volgt live mee op een testomgeving.</p><span class="meta">Week 3 – 5</span></article>
+          <article class="row reveal"><span class="idx">05</span><h3>Live &amp; nazorg</h3>
+            <p>Wij zetten hem online en regelen de techniek. Plus een half uur uitleg zodat je zelf verder kan.</p><span class="meta">Week 5 – 6</span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 04 · WERK ===================== -->
+    <section class="section" id="werk">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="h-lg reveal" style="max-width:12ch">Sites die iets moesten oplossen</h2>
+          <p class="mono reveal"><span class="c">04</span> — Werk</p>
+        </div>
+
+        <div class="rows">
+          <a class="row row-wide reveal" href="#live"><span class="idx">Bouw &amp; renovatie</span><h3>Van aanvraag naar project</h3><span class="go" aria-hidden="true">&rarr;</span></a>
+          <a class="row row-wide reveal" href="#live"><span class="idx">Zorg &amp; praktijk</span><h3>Online agenda, minder telefoon</h3><span class="go" aria-hidden="true">&rarr;</span></a>
+          <a class="row row-wide reveal" href="#live"><span class="idx">Horeca &amp; lokaal</span><h3>Gevonden worden in de buurt</h3><span class="go" aria-hidden="true">&rarr;</span></a>
+          <a class="row row-wide reveal" href="#live"><span class="idx">B2B &amp; productie</span><h3>Een catalogus die verkoopt</h3><span class="go" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <p class="mono reveal" style="margin-top:26px">↳ Plaatshouders — hier komen je echte cases</p>
+      </div>
+    </section>
+
+    <!-- ===================== 05 · PRIJS ===================== -->
+    <section class="section light bleed-top" id="prijs">
+      <span class="seam seam-top" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="h-lg reveal" style="max-width:12ch">Wat gaat dit mij kosten?</h2>
+          <p class="mono reveal"><span class="c">05</span> — Prijs</p>
+        </div>
+
+        <div class="calc">
+          <div class="reveal">
+            <fieldset class="calc-field">
+              <div class="calc-label"><span class="mono">Type site</span></div>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="sitetype" id="typeOne" value="one" checked><span>Onepager <em>vanaf € 1.500</em></span></label>
+                <label class="chip"><input type="radio" name="sitetype" id="typeMulti" value="multi"><span>Meerdere pagina's <em>vanaf € 2.400</em></span></label>
+                <label class="chip"><input type="radio" name="sitetype" id="typeShop" value="shop"><span>Webshop <em>vanaf € 3.500</em></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="calc-field" id="calcPagesField">
+              <div class="calc-label"><span class="mono">Aantal pagina's</span><span class="rng-val" id="calcPagesOut">05</span></div>
+              <input type="range" id="calcPages" min="1" max="12" value="5" step="1" aria-label="Aantal pagina's">
+              <div class="rng-cap"><span class="mono">01</span><span class="mono">12+</span></div>
+            </fieldset>
+
+            <fieldset class="calc-field">
+              <div class="calc-label"><span class="mono">Extra's</span></div>
+              <div class="chips">
+                <label class="chip"><input type="checkbox" id="optCopy"><span>Teksten door ons <em>+ € 90–130 / pag.</em></span></label>
+                <label class="chip"><input type="checkbox" id="optSeo"><span>SEO-start <em>+ € 450–650</em></span></label>
+                <label class="chip"><input type="checkbox" id="optPhoto"><span>Fotografie <em>+ € 550–750</em></span></label>
+                <label class="chip"><input type="checkbox" id="optLang"><span>Tweede taal <em>+ 30–40 %</em></span></label>
+                <label class="chip"><input type="checkbox" id="optLogo"><span>Logo &amp; huisstijl <em>+ € 690–950</em></span></label>
+                <label class="chip"><input type="checkbox" id="optCare" checked><span>Onderhoud &amp; hosting <em>€ 45 / mnd</em></span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <aside class="quote-box dark-card reveal">
+            <span class="mono"><span class="c">●</span> Richtprijs voor dit project</span>
+            <div class="big-price"><span id="priceLow">€ 1.500</span><i>–</i><span id="priceHigh">2.000</span></div>
+            <p class="sub-price" id="calcMonthly">+ € 45 per maand voor hosting, updates en back-ups</p>
+            <div class="spec" id="calcSpec"></div>
+            <a class="btn" href="contact/">Zet dit om in een offerte <span class="arw">&rarr;</span></a>
+            <p class="fine">Richtprijzen excl. btw. De marge hangt af van hoeveel maatwerk en animatie erin kruipt, en van wat je zelf aanlevert. Binnen 2 werkdagen krijg je een vaste prijs, plus een eerste ontwerp van je homepagina.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 06 · WIE + VRAGEN ===================== -->
+    <section class="section light bleed-bottom" id="vragen">
+      <span class="seam seam-bottom" aria-hidden="true"></span>
+      <div class="wrap split">
+        <div>
+          <p class="mono reveal"><span class="c">06</span> — Wie zit erachter</p>
+          <h2 class="h-lg reveal" style="margin-top:22px;max-width:11ch">Twee broers, één aanspreekpunt</h2>
+          <p class="reveal" style="margin-top:22px;max-width:36ch;color:var(--text-muted);font-size:.97rem">
+            Idento is klein en dat blijft zo. Je praat met wie je site maakt, niet met een accountmanager.
+          </p>
+          <div class="who reveal">
+            <div><b>Jens</b><span>Design, webdesign &amp; huisstijl — je vaste contact</span></div>
+            <div><b>Jarne</b><span>IT-support: hosting, DNS en alles wat technisch stuk kan</span></div>
+          </div>
+        </div>
+
+        <div>
+          <p class="mono reveal" style="margin-bottom:26px">Veelgestelde vragen</p>
+          <div class="faq-list reveal">
+            <details class="faq-item" open>
+              <summary><span class="q">Hoelang duurt het voor mijn site online staat?</span><span class="faq-chevron" aria-hidden="true"></span></summary>
+              <p>Gemiddeld vier tot zes weken vanaf de start. De grootste vertraging is meestal het aanleveren van foto's en teksten — daarom pakken we dat al in stap 02 aan.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="q">Kan ik zelf aanpassingen doen achteraf?</span><span class="faq-chevron" aria-hidden="true"></span></summary>
+              <p>Ja. We bouwen in WordPress met Elementor. Bij de oplevering krijg je een half uur uitleg plus een korte video. Een tekst wijzigen of een foto vervangen doe je daarna zelf in vijf minuten.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="q">Wat als ik al een website heb?</span><span class="faq-chevron" aria-hidden="true"></span></summary>
+              <p>Dan verhuizen we alles: domeinnaam, mailboxen en de pagina's die het goed doen in Google. Je oude site blijft online tot de nieuwe klaar is, dus je bent geen dag onbereikbaar.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="q">Zit hosting erbij?</span><span class="faq-chevron" aria-hidden="true"></span></summary>
+              <p>Optioneel, aan € 45 per maand: hosting, dagelijkse back-ups, updates, beveiliging en kleine aanpassingen. Liever bij je huidige hostingpartij blijven? Ook goed.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="q">Doen jullie ook logo's en drukwerk?</span><span class="faq-chevron" aria-hidden="true"></span></summary>
+              <p>Jazeker — logo, huisstijl, visitekaartjes, banners en borden via vaste drukpartners, met levering. Handig als je in één keer alles gelijk wil trekken.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SLOT-CTA ===================== -->
+    <section class="section cta-section" id="contact">
+      <div class="cta-halo" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="mono reveal">Klaar om te starten?</p>
+        <h2 class="h-xl reveal" style="margin-top:26px">Vertel ons over je zaak.</h2>
+        <a class="cta-mail reveal" href="mailto:info@idento.be">info@idento.be</a>
+        <div class="cta-actions reveal">
+          <a class="btn btn-primary" href="contact/">Start je project <span class="arw">&rarr;</span></a>
+          <a class="tlink" href="tel:+32469438546">0469 43 85 46</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">[EYEBROW]</span>
-        <h2>[SECTIETITEL: waar de klant trots op is]</h2>
-        <p>[SECTIE-INTRO: twee zinnen die het aanbod kaderen.]</p>
-      </div>
-      <div class="dish-grid">
-        <article class="dish-card reveal">
-          <div class="dish-visual dish-visual-1"></div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Dienst/Product 1</h3>
-              <span class="dish-price">[PRIJS]</span>
-            </div>
-            <p>[BESCHRIJVING 1: twee à drie zinnen over wat dit is en waarom het de moeite is.]</p>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-mark">
+            <svg width="28" height="28" viewBox="0 0 100 100" fill="none" stroke="#00E8FF" stroke-width="6.2" stroke-linecap="round" aria-hidden="true">
+              <path d="M29.5 73 V46.5 A20.5 20.5 0 0 1 70.5 46.5 V73"/>
+              <path d="M39 69 V48 A11 11 0 0 1 61 48 V69"/>
+              <path d="M50 69 V46"/>
+            </svg>
+            <strong>Idento</strong>
           </div>
-        </article>
-
-        <article class="dish-card reveal">
-          <div class="dish-visual dish-visual-2"></div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Dienst/Product 2</h3>
-              <span class="dish-price">[PRIJS]</span>
-            </div>
-            <p>[BESCHRIJVING 2]</p>
-          </div>
-        </article>
-
-        <article class="dish-card reveal">
-          <div class="dish-visual dish-visual-3"></div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Dienst/Product 3</h3>
-              <span class="dish-price">[PRIJS]</span>
-            </div>
-            <p>[BESCHRIJVING 3]</p>
-          </div>
-        </article>
-      </div>
-      <p class="dish-note reveal">[AANVULLENDE NOOT: optionele zin over wat er nog meer is. Verwijder dit hele p-element als het niet van toepassing is.]</p>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="zo-werkt-het">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">[EYEBROW]</span>
-        <h2>[SECTIETITEL: hoe het werkt, in drie stappen]</h2>
-        <p>[SECTIE-INTRO]</p>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card reveal">
-          <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 2.5 3.5 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10.5 20 4 13.5 4 5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          </div>
-          <span class="step-num">STAP 01</span>
-          <h3>[STAP 1 TITEL]</h3>
-          <p>[STAP 1 TEKST]</p>
+          <p style="font-size:.92rem;max-width:32ch">Websites en huisstijl voor zelfstandigen en KMO's in Vlaams-Brabant en daarbuiten.</p>
         </div>
-        <div class="step-card reveal">
-          <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span class="step-num">STAP 02</span>
-          <h3>[STAP 2 TITEL]</h3>
-          <p>[STAP 2 TEKST]</p>
+        <div>
+          <h4>Diensten</h4>
+          <ul>
+            <li><a href="#aanpak">Webdesign</a></li>
+            <li><a href="#aanpak">SEO &amp; snelheid</a></li>
+            <li><a href="#aanpak">Onderhoud</a></li>
+            <li><a href="#aanpak">Logo &amp; huisstijl</a></li>
+          </ul>
         </div>
-        <div class="step-card reveal">
-          <div class="step-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v7c0 1.7 1.3 3 3 2.8V21M17 3v18M17 3c-2.5 0-4 1.8-4 5s1.5 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span class="step-num">STAP 03</span>
-          <h3>[STAP 3 TITEL]</h3>
-          <p>[STAP 3 TEKST]</p>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="#werk">Werk</a></li>
+            <li><a href="#traject">Traject</a></li>
+            <li><a href="#prijs">Prijs</a></li>
+            <li><a href="#vragen">Vragen</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:info@idento.be">info@idento.be</a></li>
+            <li><a href="tel:+32469438546">0469 43 85 46</a></li>
+            <li><span style="font-size:.92rem">Hoesnaek 20 · 1670 Pepingen</span></li>
+          </ul>
         </div>
       </div>
-      <!-- data-count-to is het eindgetal waar de teller naartoe animeert.
-           Zet daar het echte cijfer; de tekst ertussen is wat een bezoeker
-           zonder JavaScript ziet. -->
-      <div class="stats-row reveal">
-        <div class="stat-item">
-          <span class="stat-num" data-count-to="0" data-suffix="+">0+</span>
-          <span class="stat-label">[CIJFER 1 LABEL]</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-count-to="0">0</span>
-          <span class="stat-label">[CIJFER 2 LABEL]</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-count-to="0">0</span>
-          <span class="stat-label">[CIJFER 3 LABEL]</span>
-        </div>
+      <div class="footer-inner">
+        <strong>© 2026 Idento</strong>
+        <span class="footer-legal"><a href="privacy/">Privacy</a> · <a href="contact/">Contact</a></span>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- Actiebalk. Geen aanbieding bij deze klant? Verwijder deze hele wrap-div. -->
-  <div class="wrap">
-    <div class="offer-bar reveal">
-      <div class="offer-bar-text">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v13M12 8c-1.5-3-4-4.5-5.5-3S5 8.5 8 9M12 8c1.5-3 4-4.5 5.5-3S19 8.5 16 9" stroke="#faf8f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="8" width="16" height="4.5" rx="1" stroke="#faf8f2" stroke-width="1.6"/><path d="M5 12.5h14V19a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6.5Z" stroke="#faf8f2" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        <span><strong>[AANBOD]</strong> [AANBOD-VOORWAARDE] — vermeld <code>[ACTIECODE]</code>.</span>
-      </div>
-      <a href="#contact-formulier" class="btn btn-outline" style="background:rgba(250,248,242,0.14); border-color:rgba(250,248,242,0.5); color:var(--linen-50);">[CTA-TEKST]</a>
-    </div>
-  </div>
-
-  <!-- ══ ERVARINGEN ══
-       Gebruik hier alleen echte, herleidbare quotes. Verzonnen reviews zijn
-       in België een misleidende handelspraktijk. Heeft de klant nog geen
-       reviews? Verwijder dan deze hele section. -->
-  <section class="section section-alt" id="ervaringen">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">[EYEBROW]</span>
-        <h2>[SECTIETITEL]</h2>
-        <p>[SECTIE-INTRO]</p>
-      </div>
-      <div class="quote-row">
-        <div class="quote-card reveal">
-          <div class="stars" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-          </div>
-          <p class="quote-text">"[QUOTE 1]"</p>
-          <div class="quote-attr"><span>[AUTEUR 1]</span><span class="dot"></span><span>[BRON · SCORE]</span></div>
-        </div>
-        <div class="quote-card reveal">
-          <div class="stars" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6L10 1.5Z"/></svg>
-          </div>
-          <p class="quote-text">"[QUOTE 2]"</p>
-          <div class="quote-attr"><span>[AUTEUR 2]</span><span class="dot"></span><span>[BRON · SCORE]</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="garantie">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">[EYEBROW]</span>
-        <h2>[SECTIETITEL: de belofte aan de klant]</h2>
-        <p>[SECTIE-INTRO]</p>
-      </div>
-      <div class="guarantee-grid">
-        <div class="guarantee-item reveal">
-          <div class="guarantee-check">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#faf8f2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>[BELOFTE 1 TITEL]</h3>
-            <p>[BELOFTE 1 TEKST]</p>
-          </div>
-        </div>
-        <div class="guarantee-item reveal">
-          <div class="guarantee-check">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#faf8f2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>[BELOFTE 2 TITEL]</h3>
-            <p>[BELOFTE 2 TEKST]</p>
-          </div>
-        </div>
-        <div class="guarantee-item reveal">
-          <div class="guarantee-check">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#faf8f2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>[BELOFTE 3 TITEL]</h3>
-            <p>[BELOFTE 3 TEKST]</p>
-          </div>
-        </div>
-        <div class="guarantee-item reveal">
-          <div class="guarantee-check">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#faf8f2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>[BELOFTE 4 TITEL]</h3>
-            <p>[BELOFTE 4 TEKST]</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="faq">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Veelgestelde vragen</span>
-        <h2>[SECTIETITEL]</h2>
-        <p>[SECTIE-INTRO]</p>
-      </div>
-      <div class="faq-list">
-        <details class="faq-item reveal">
-          <summary>[VRAAG 1]<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-          <p>[ANTWOORD 1]</p>
-        </details>
-        <details class="faq-item reveal">
-          <summary>[VRAAG 2]<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-          <p>[ANTWOORD 2]</p>
-        </details>
-        <details class="faq-item reveal">
-          <summary>[VRAAG 3]<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-          <p>[ANTWOORD 3]</p>
-        </details>
-        <details class="faq-item reveal">
-          <summary>[VRAAG 4]<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-          <p>[ANTWOORD 4]</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ AANVRAAGFORMULIER ══
-       De velden datum en aantal personen zijn een voorbeeld van een aanvraag
-       met extra gegevens. Verwijder wat niet past: de validatie in
-       contact-form.js kent regels voor naam, email, telefoon, datum,
-       personen en bericht, en past enkel toe wat effectief aanwezig is. -->
-  <section class="section" id="contact-formulier">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">[EYEBROW]</span>
-        <h2>[SECTIETITEL]</h2>
-        <p>[SECTIE-INTRO]</p>
-      </div>
-      <div class="contact-grid">
-        <form class="form-card reveal" id="reserveForm" data-ajax-form>
-          <div class="form-row">
-            <div class="field">
-              <label for="naam">Naam</label>
-              <input type="text" id="naam" name="naam" aria-describedby="naam-error" placeholder="Voor- en achternaam" autocomplete="name" required>
-              <span class="field-error" id="naam-error"></span>
-            </div>
-            <div class="field">
-              <label for="telefoon">Telefoon</label>
-              <input type="tel" id="telefoon" name="telefoon" aria-describedby="telefoon-error" placeholder="04XX XX XX XX" autocomplete="tel" inputmode="tel" required>
-              <span class="field-error" id="telefoon-error"></span>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" aria-describedby="email-error" placeholder="jouw@email.be" autocomplete="email" inputmode="email" required>
-              <span class="field-error" id="email-error"></span>
-            </div>
-            <div class="field">
-              <label for="datum">Gewenste datum</label>
-              <input type="date" id="datum" name="datum" required>
-            </div>
-          </div>
-          <div class="field">
-            <label for="personen">Aantal personen</label>
-            <input type="number" id="personen" name="personen" min="1" placeholder="2" required>
-          </div>
-          <div class="field">
-            <label for="bericht">Bericht (optioneel)</label>
-            <textarea id="bericht" name="bericht" rows="3" placeholder="[VOORBEELDTEKST in het invulveld]"></textarea>
-          </div>
-
-          <!-- Honeypot tegen spambots. Laat leeg — mensen zien dit veld niet. -->
-          <div class="field-trap" aria-hidden="true">
-            <label for="website-hero">Website</label>
-            <input type="text" id="website-hero" name="website" tabindex="-1" autocomplete="off">
-          </div>
-
-          <button type="submit" class="btn btn-primary">[CTA-TEKST]</button>
-          <p class="form-hint">[FORMULIER-NOOT: wat de bezoeker mag verwachten na het versturen.]</p>
-          <div class="form-status" id="reserveFormStatus" aria-live="polite"></div>
-          <noscript>
-            <p class="form-status is-visible is-error">
-              JavaScript staat uit — bel ons liever op <a href="tel:[TELEFOON-E164]">[TELEFOON]</a>
-              of mail naar <a href="mailto:[EMAIL]">[EMAIL]</a>.
-            </p>
-          </noscript>
-        </form>
-
-        <div class="info-card reveal">
-          <div class="info-row">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-7.4 7-12.4A7 7 0 0 0 5 8.6C5 13.6 12 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="8.6" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
-            <div>
-              <h4>Adres</h4>
-              <p>[ADRES]</p>
-            </div>
-          </div>
-          <div class="info-row">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 2.5 3.5 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10.5 20 4 13.5 4 5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            <div>
-              <h4>Telefoon</h4>
-              <p><a href="tel:[TELEFOON-E164]">[TELEFOON]</a></p>
-            </div>
-          </div>
-          <div class="info-row">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18v12H3V6Z" stroke="currentColor" stroke-width="1.5"/><path d="m3 7 9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            <div>
-              <h4>E-mail</h4>
-              <p><a href="mailto:[EMAIL]">[EMAIL]</a></p>
-            </div>
-          </div>
-          <div class="info-row" style="align-items:flex-start;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/></svg>
-            <div style="width:100%;">
-              <h4>Openingsuren</h4>
-              <!-- [OPENINGSUREN] — één tr per dag of dagbereik. Werkt de
-                   klant met seizoenen, gebruik dan een th-rij als kop. -->
-              <table class="hours-table">
-                <tr><th>[PERIODE]</th><td></td></tr>
-                <tr><td>[DAGEN]</td><td>[UREN]</td></tr>
-                <tr><td>[DAGEN]</td><td>gesloten</td></tr>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap footer-inner">
-    <span><strong>[BEDRIJFSNAAM]</strong> — [ADRES]</span>
-    <span>[TELEFOON]</span>
-    <span class="footer-legal"><a href="privacy/">Privacybeleid</a> · <a href="#" data-cookie-settings>Cookie-instellingen</a></span>
-  </div>
-</footer>
-
-<!-- Vaste balk die verschijnt zodra de bezoeker de hero voorbij scrollt.
-     Niet nodig bij deze klant? Verwijder deze sticky-bar-div. -->
-<div class="sticky-bar" id="stickyBar">
-  <div class="wrap sticky-bar-inner">
-    <div class="sticky-bar-msg">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l1.6 12.4A2 2 0 0 0 7.6 18h8.8a2 2 0 0 0 2-1.8L20 4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 4v6M12 4v8M16 4v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <span class="long"><b>[BALK-NADRUK]</b>&nbsp;[BALK-TEKST] —</span>
-      <span>[BALK-SLOT]</span>
-    </div>
-    <a href="#contact-formulier" class="btn btn-primary">[CTA-TEKST]</a>
-  </div>
-</div>
-
-<!-- Schuift éénmaal per bezoek binnen, wegklikbaar.
-     Niet nodig? Verwijder deze nudge-div. -->
-<div class="nudge" id="nudge">
-  <button type="button" class="nudge-close" id="nudgeClose" aria-label="Sluiten">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-  </button>
-  <strong>[NUDGE-TITEL]</strong>
-  <p>[NUDGE-TEKST]</p>
-  <a href="#contact-formulier" class="btn btn-primary">[CTA-TEKST]</a>
-</div>
-
-<script src="assets/js/cookie-consent.js" data-privacy-url="privacy/" defer></script>
-<script src="assets/js/analytics.js" defer></script>
-<script src="assets/js/site.js" defer></script>
-<script src="assets/js/contact-form.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/home.js" defer></script>
 </body>
 </html>

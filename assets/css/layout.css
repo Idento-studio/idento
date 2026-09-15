@@ -1,59 +1,144 @@
 /* ==========================================================================
    layout.css — site-chrome & structuur die op ELKE pagina hetzelfde is:
-   container, nav, footer, sectie-ritme, scroll-progressbar, reveal-animatie.
+   container, nav, footer, sectie-ritme, lichte secties, scroll-progressbar,
+   reveal-animatie.
    ========================================================================== */
 
-/* — Skip link (toetsenbord/screenreader): onzichtbaar tot het focus krijgt — */
+/* — Skip link — */
 .skip-link {
   position: absolute;
   top: -3rem;
   left: var(--sp-4);
   z-index: 100;
-  background: var(--inverse-bg-strong);
-  color: var(--inverse-text);
+  background: var(--accent);
+  color: var(--bg);
   padding: 0.7rem 1.2rem;
   border-radius: var(--radius-sm);
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: top 0.2s var(--ease);
 }
-.skip-link:focus {
-  top: var(--sp-4);
-}
+.skip-link:focus { top: var(--sp-4); }
 
 
 /* — Container — */
 .wrap {
   width: 100%;
-  max-width: 1160px;
+  max-width: 1320px;
   margin-inline: auto;
-  padding-inline: var(--sp-6);
-}
-@media (max-width: 640px) {
-  .wrap { padding-inline: var(--sp-5); }
+  padding-inline: clamp(20px, 5vw, 80px);
 }
 
 
-/* — Section scaffolding — */
-.section { padding-block: var(--sp-9); }
+/* — Sectie-ritme — */
+.section { padding-block: clamp(84px, 13vw, 190px); position: relative; }
+.section > .wrap { position: relative; z-index: 1; }
 .section-head {
   display: flex;
-  flex-direction: column;
-  gap: var(--sp-4);
-  max-width: 640px;
-  margin-bottom: var(--sp-8);
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--sp-5);
+  flex-wrap: wrap;
+  margin-bottom: clamp(40px, 6vw, 86px);
 }
-.section-head h2 { font-size: var(--fs-h2); line-height: 1.08; }
-.section-head p { color: var(--text-muted); font-size: var(--fs-lead); line-height: 1.55; }
+.section-head h2 { font-size: var(--fs-h2); }
+.section-head p { color: var(--text-muted); font-size: var(--fs-small); max-width: 34ch; }
 .section-alt { background: var(--surface); }
 
 
-/* — Page header — compacte kop voor subpagina's (geen volledige hero).
-   Gebruik op elke pagina behalve de homepage. — */
+/* — Lichte secties: dezelfde tokens, omgekeerd, plus het ribbelpatroon —
+   Het patroon is de lijnenstructuur van een vingerafdruk: twee lagen
+   golvende hairlines op verschillende schaal, zodat de tegelherhaling
+   niet opvalt. Staat op ~2% dekking; je ziet het pas als je erop let. */
+.light {
+  --text: var(--light-text);
+  --text-strong: var(--light-text);
+  --text-muted: var(--light-muted);
+  --muted-accent: var(--light-dim);
+  --border: var(--light-border);
+  --hairline: rgba(8, 18, 28, 0.07);
+  --surface: var(--light-bg);
+  --surface-raised: var(--light-surface);
+  --accent: var(--light-accent);
+  --accent-ink: var(--light-accent);
+  --accent-inverse: var(--mint-700);
+  --inverse-text-soft: var(--light-dim);
+  --glow: 0 0 30px rgba(0, 116, 168, 0.22);
+  color: var(--light-text);
+  background-color: var(--light-bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%230A1A2F' stroke-opacity='0.048' stroke-width='1'%3E%3Cpath d='M0 10 q15 -7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 30 q15 7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 50 q15 -7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 70 q15 7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 90 q15 -7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 110 q15 7 30 0 t30 0 t30 0 t30 0'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%230089C7' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M0 20 q15 8 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 60 q15 -8 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 100 q15 8 30 0 t30 0 t30 0 t30 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 92px 92px, 143px 143px;
+}
+.light h1, .light h2, .light h3, .light h4 { color: var(--light-text); }
+
+/* Donkere kaart binnen een lichte sectie — daar mag de fluo weer knallen. */
+.dark-card {
+  --text: var(--steel-100);
+  --text-strong: #fff;
+  --text-muted: var(--steel-300);
+  --border: rgba(143, 163, 181, 0.2);
+  --accent: var(--flu-500);
+  --accent-ink: var(--flu-500);
+  background: var(--navy-900);
+  color: var(--steel-100);
+}
+.dark-card h1, .dark-card h2, .dark-card h3, .dark-card h4 { color: #fff; }
+
+
+/* — Zachte overgang donker ↔ licht —
+   Een harde snijlijn tussen bijna-zwart en bijna-wit is brutaal. De lichte
+   sectie komt daarom met een gradient in tien stops uit het donker omhoog,
+   met een cyaan gloed in de naad die opent zodra hij in beeld komt. */
+.bleed-top { padding-top: calc(var(--bleed) + clamp(56px, 8vh, 130px)); }
+.bleed-bottom { padding-bottom: calc(var(--bleed) + clamp(56px, 8vh, 130px)); }
+.bleed-top::before,
+.bleed-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: var(--bleed);
+  pointer-events: none;
+  z-index: 0;
+}
+.bleed-top::before {
+  top: 0;
+  background: linear-gradient(to bottom,
+    #070D18 0%, rgba(7,13,24,.93) 11%, rgba(7,13,24,.82) 22%, rgba(7,13,24,.66) 34%,
+    rgba(7,13,24,.48) 47%, rgba(7,13,24,.31) 60%, rgba(7,13,24,.17) 72%,
+    rgba(7,13,24,.08) 83%, rgba(7,13,24,.02) 93%, rgba(7,13,24,0) 100%);
+}
+.bleed-bottom::after {
+  bottom: 0;
+  background: linear-gradient(to top,
+    #070D18 0%, rgba(7,13,24,.93) 11%, rgba(7,13,24,.82) 22%, rgba(7,13,24,.66) 34%,
+    rgba(7,13,24,.48) 47%, rgba(7,13,24,.31) 60%, rgba(7,13,24,.17) 72%,
+    rgba(7,13,24,.08) 83%, rgba(7,13,24,.02) 93%, rgba(7,13,24,0) 100%);
+}
+.seam {
+  position: absolute;
+  left: 0; right: 0;
+  height: var(--bleed);
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(44% 64% at 50% 50%,
+    rgba(0,232,255,.17) 0%, rgba(37,245,206,.07) 44%, rgba(0,232,255,0) 74%);
+  opacity: 0;
+  transform: scaleY(.55) scaleX(.8);
+  transform-origin: center;
+  transition: opacity 1.2s ease, transform 1.5s var(--ease);
+}
+.seam-top { top: 0; }
+.seam-bottom { bottom: 0; }
+.seam.is-visible { opacity: 1; transform: scaleY(1) scaleX(1); }
+
+
+/* — Page header — compacte kop voor subpagina's (niet op de homepage) — */
 .page-header {
   position: relative;
-  padding-top: calc(4.5rem + var(--sp-8));
+  padding-top: calc(4.75rem + var(--sp-8));
   padding-bottom: var(--sp-8);
   background: var(--inverse-bg);
   color: var(--inverse-text);
@@ -75,7 +160,6 @@
   margin-top: var(--sp-3);
   color: var(--inverse-text);
   font-size: var(--fs-h2);
-  line-height: 1.08;
   max-width: 22ch;
 }
 .page-header p {
@@ -92,7 +176,10 @@
   align-items: center;
   gap: var(--sp-2);
   margin-top: var(--sp-5);
-  font-size: var(--fs-eyebrow);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--inverse-text-soft);
 }
 .breadcrumb a { text-decoration: none; transition: color 0.2s ease; }
@@ -102,19 +189,21 @@
 
 /* — Nav — */
 .nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
   z-index: 50;
   background: var(--inverse-veil-nav);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border-bottom: 1px solid var(--hairline);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s ease, background 0.4s ease;
 }
+.nav.is-stuck { border-bottom-color: var(--hairline); background: rgba(7, 13, 24, 0.9); }
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4.5rem;
+  height: 4.75rem;
 }
 .brand-mark {
   display: flex;
@@ -122,71 +211,101 @@
   gap: 0.6rem;
   text-decoration: none;
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--text-strong);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.06em;
+  color: var(--steel-100);
 }
 .brand-mark svg { flex-shrink: 0; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-6);
-}
+.nav-links { display: flex; align-items: center; gap: var(--sp-6); }
+.nav-links-list { display: flex; gap: clamp(16px, 2.4vw, 34px); }
 .nav-links-list a:not(.btn) {
+  position: relative;
   text-decoration: none;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  transition: color 0.2s ease;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--steel-300);
+  padding-block: 6px;
+  transition: color 0.3s ease;
 }
-.nav-links-list a:not(.btn):hover { color: var(--accent-ink); }
-/* Actieve pagina in de nav — */
-.nav-links-list a[aria-current="page"] {
-  color: var(--text-strong);
-  font-weight: 600;
-  box-shadow: inset 0 -2px 0 var(--accent);
+.nav-links-list a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 1px; width: 100%;
+  background: var(--flu-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
 }
+.nav-links-list a:not(.btn):hover { color: var(--flu-500); }
+.nav-links-list a:not(.btn):hover::after { transform: scaleX(1); }
+.nav-links-list a[aria-current="page"] { color: var(--steel-100); }
+.nav-links-list a[aria-current="page"]::after { transform: scaleX(1); }
 .nav-cta { display: flex; align-items: center; gap: var(--sp-5); }
-.nav-links-list { display: flex; gap: var(--sp-6); }
 @media (max-width: 760px) {
   .nav-links-list { display: none; }
-}
-@media (max-width: 420px) {
-  .brand-mark { font-size: 1rem; gap: 0.4rem; }
-  .brand-mark svg { width: 24px; height: 24px; }
-  .nav .btn-primary { padding: 0.7rem 1.1rem; font-size: 0.875rem; }
+  .nav-inner { height: 4.1rem; }
+  .nav .btn { padding: 11px 17px; font-size: 0.8rem; gap: 9px; }
 }
 
 
 /* — Footer — */
 footer {
-  background: var(--inverse-bg-strong);
-  color: var(--inverse-text-dim);
-  padding-block: var(--sp-6);
+  background: var(--navy-800);
+  color: var(--text-muted);
+  border-top: 1px solid var(--hairline);
+  padding-block: clamp(48px, 6vw, 80px) 0;
 }
-.footer-inner {
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: var(--sp-6);
+}
+.footer-grid h4 {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--inverse-text-soft);
+  font-weight: 500;
+  margin: 0 0 var(--sp-4);
+}
+.footer-grid ul { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-grid a { font-size: var(--fs-small); color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+.footer-grid a:hover { color: var(--flu-500); }
+.footer-mark { display: flex; align-items: center; gap: 0.7rem; margin-bottom: var(--sp-4); }
+.footer-mark strong { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.05em; color: var(--steel-100); }
+.footer-inner,
+.footer-bottom {
+  margin-top: clamp(44px, 6vw, 76px);
+  border-top: 1px solid var(--hairline);
+  padding-block: var(--sp-5);
+  padding-bottom: calc(var(--sp-5) + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: var(--sp-3) var(--sp-6);
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--inverse-text-soft);
 }
-.footer-inner strong { color: var(--inverse-text); font-family: var(--font-display); font-weight: 600; }
-.footer-legal { opacity: 0.85; }
-.footer-legal a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--inverse-underline);
-  text-underline-offset: 2px;
-}
-.footer-legal a:hover { text-decoration-color: var(--accent-inverse); }
+.footer-inner strong { color: var(--steel-100); font-weight: 500; }
+.footer-legal a { color: inherit; text-decoration: none; }
+.footer-legal a:hover { color: var(--flu-500); }
+@media (max-width: 1040px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px)  { .footer-grid { grid-template-columns: 1fr; } }
 
 
 /* — Progress bar — */
 .progress-bar {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   z-index: 60;
   pointer-events: none;
 }
@@ -195,27 +314,56 @@ footer {
   width: 100%;
   transform: scaleX(0);
   transform-origin: left center;
-  background: linear-gradient(90deg, var(--accent), var(--danger));
+  background: var(--flu-500);
+  box-shadow: 0 0 14px rgba(0, 232, 255, 0.9);
   will-change: transform;
 }
 html.js .progress-bar-fill { transition: transform 0.12s linear; }
 
 
-/* — Reveal-on-scroll (progressive enhancement) — */
-/* Content stays fully opaque/readable at all times, with or without JS;
-   only a gentle upward settle is deferred to the scroll trigger, so a
-   stalled script or a screenshot taken before scrolling never hides text. */
-.reveal { opacity: 1; transform: none; }
-html.js .reveal {
-  transform: translateY(16px);
-  transition: transform 0.7s var(--ease);
+/* — Filmkorrel over de hele pagina — */
+.grain {
+  position: fixed;
+  inset: -60%;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 7s steps(8) infinite;
 }
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  12%  { transform: translate(-4%, -3%); }
+  25%  { transform: translate(3%, -5%); }
+  37%  { transform: translate(-2%, 4%); }
+  50%  { transform: translate(4%, 2%); }
+  62%  { transform: translate(-5%, -2%); }
+  75%  { transform: translate(2%, 5%); }
+  87%  { transform: translate(-3%, -4%); }
+  100% { transform: translate(0, 0); }
+}
+
+
+/* — Reveal-on-scroll (progressive enhancement) —
+   De inhoud is altijd leesbaar, met of zonder JS; enkel het opschuiven
+   wordt uitgesteld tot de scroll-trigger. */
+.reveal { opacity: 1; transform: none; }
+html.js .reveal { transform: translateY(18px); transition: transform 0.75s var(--ease); }
 html.js .reveal.is-visible { transform: none; }
 
 
-/* — Motion policy: globale onderdelen — */
+/* — Touch: ruimere aanraakzones, ook op tablets boven 760px — */
+@media (hover: none) {
+  .nav-links-list a, .footer-grid a { display: inline-block; padding-block: 8px; }
+  .brand-mark { padding-block: 6px; }
+  .btn { padding: 16px 28px; }
+  .footer-grid ul { gap: 4px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  html.js .reveal { transition: none; opacity: 1; transform: none; }
+  html.js .reveal { transition: none; transform: none; }
   .progress-bar-fill { transition: none; }
+  .grain { animation: none; }
+  .seam { transition: none; opacity: 1; transform: none; }
 }

@@ -1,125 +1,120 @@
 /* ==========================================================================
-   brand.css — de merkbasis van de site
+   brand.css — de merkbasis van de site.
    Enige plek waar kleuren, fonts, spacing en radii gedefinieerd worden.
    Wijzig hier en de hele site volgt. Bevat GEEN component- of paginastijlen.
 
-   ── PER KLANT AAN TE PASSEN ──────────────────────────────────────────────
-   Het kleurenpalet hieronder wordt per klant aangepast op basis van
-   sectie 6 van PROJECT-BRIEF.md (huisstijl: kleuren, logo, fonts, tone of
-   voice). De tokens die er nu staan zijn een NEUTRAAL STARTPUNT — een
-   warm, aards palet dat op zichzelf voor niemand specifiek is. Laat ze
-   staan tot je de huisstijl van de klant hebt.
+   ── HUISSTIJL IDENTO ─────────────────────────────────────────────────────
+   Het palet komt uit het merkboek, met één afwijking: de schermkleuren zijn
+   fluorescerender dan de drukkleuren. Op een bijna-zwarte ondergrond zakt
+   #1BA8E0 weg; #00E8FF niet. Voor drukwerk gebruik je de merkboek-waarden:
+       Sky #1BA8E0 · Teal #2EC4B6 · Deep Navy #0A1A2F · Paper #F7F8F9
 
-   Werkwijze:
-   1. Vervang de hex-waarden in "Palette" door die van de klant. Houd de
-      tokennamen (--moss-800, --gold-500...) ongewijzigd, of hernoem ze
-      overal consequent — ze worden door de andere CSS-bestanden gebruikt.
-   2. De semantische tokens eronder (--bg, --text, --accent, --brand...)
-      wijzen naar het palet. Meestal hoef je daar niets te veranderen:
-      pas het palet aan en de hele site volgt.
-   3. Fonts: --font-display en --font-body. Wijzig je die, pas dan ook de
-      Google Fonts-link in de head van elke HTML-pagina aan.
-   4. Controleer het contrast na het wisselen (minimaal 4.5:1 voor
-      lopende tekst) — een donker merkkleur op een lichte achtergrond
-      gaat meestal goed, de omgekeerde combinatie zelden.
+   De gradient sky → teal is voorbehouden aan het merk-icoon. Gebruik hem
+   nooit als achtergrondvulling of decoratief element elders. In de UI komt
+   het cyaan terug als volle kleur.
    ========================================================================== */
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
   /* — Palette — */
-  --moss-950: #1c2419;
-  --moss-900: #242f1f;
-  --moss-800: #33422e;
-  --moss-700: #445642;
-  --gold-600: #a8721f;
-  --gold-500: #c98a34;
-  --gold-400: #dba456;
-  --wine-700: #5f2424;
-  --wine-600: #7a2e2e;
-  --linen-50:  #faf8f2;
-  --linen-100: #f3efe3;
-  --linen-200: #eae3d3;
-  --linen-300: #ded4bd;
-  --sage-400: #a9af9a;
-  --sage-300: #c2c7b3;
-  --ink-900: #1a1712;
-  --ink-800: #221f1a;
-  --ink-600: #4a453c;
-  --ink-400: #79746a;
+  --navy-950: #04070E;
+  --navy-900: #070D18;   /* hoofdachtergrond */
+  --navy-800: #0B1322;   /* verhoogde vlakken */
+  --navy-700: #0D1626;
+  --flu-500:  #00E8FF;   /* fluo cyaan — scherm */
+  --flu-600:  #0091FF;
+  --flu-700:  #0074A8;   /* leesbaar cyaan op een lichte ondergrond */
+  --mint-500: #25F5CE;   /* fluo teal — scherm */
+  --mint-700: #0FA894;
+  --paper-50: #EFF4F8;   /* lichte secties */
+  --paper-0:  #FFFFFF;
+  --steel-100: #EDF5FA;
+  --steel-300: #8FA3B5;
+  --steel-500: #6E8398;
+  --steel-700: #4E6274;
+  --steel-800: #5B6E7F;
+  --ink-900:  #08121C;   /* tekst op licht */
+  --wine-600: #FF6B6B;   /* fout */
+  --wine-700: #E14B4B;
 
-  --bg: var(--linen-100);
-  --surface: var(--linen-50);
-  --surface-subtle: var(--linen-200);
-  --surface-raised: #ffffff;
-  --text: var(--ink-800);
-  --text-muted: var(--ink-600);
-  --border: var(--linen-300);
-  --accent: var(--gold-500);
-  /* Iets dieper dan --gold-600: op de lichte achtergronden (linen/wit) waar
-     dit voor kleine tekst en links gebruikt wordt, haalt --gold-600 zelf maar
-     3.6:1 contrast — net onder de WCAG AA-norm (4.5:1) voor gewone tekst.
-     Deze tint haalt overal ≥4.5:1, zonder merkbaar minder "goud" te ogen. */
-  --accent-ink: #8f611a;
-  --brand: var(--moss-800);
+  /* — Semantische rollen (donkere basis) — */
+  --bg: var(--navy-900);
+  --surface: var(--navy-800);
+  --surface-subtle: var(--navy-700);
+  --surface-raised: var(--navy-800);
+  --text: var(--steel-100);
+  --text-strong: #FFFFFF;
+  --text-muted: var(--steel-300);
+  --border: rgba(143, 163, 181, 0.2);
+  --accent: var(--flu-500);
+  --accent-ink: var(--flu-500);     /* accent voor kleine tekst op --bg: 12.9:1 */
+  --brand: var(--flu-500);
 
-  /* — Rollen op een donkere ondergrond (header/footer/page-header/info-card) —
-     Hieronder verandert normaal NIETS per klant: je past enkel het palet
-     hierboven aan, en deze rollen volgen automatisch mee. — */
-  --inverse-bg: var(--moss-900);
-  --inverse-bg-strong: var(--moss-950);
-  --inverse-text: var(--linen-50);
-  --inverse-text-emphasis: var(--linen-100);
-  --inverse-text-muted: var(--sage-300);
-  --inverse-text-soft: var(--sage-400);
-  --inverse-text-dim: rgba(250, 248, 242, 0.6);
-  --inverse-text-bright: rgba(250, 248, 242, 0.82);
-  --accent-inverse: var(--gold-400);
+  /* — Rollen op de "inverse" vlakken (nav, footer, page-header, info-card).
+       Bij Idento zijn die óók donker, maar een tint lichter dan de pagina. — */
+  --inverse-bg: var(--navy-800);
+  --inverse-bg-strong: var(--navy-950);
+  --inverse-text: var(--steel-100);
+  --inverse-text-emphasis: #FFFFFF;
+  --inverse-text-muted: var(--steel-300);
+  --inverse-text-soft: var(--steel-500);
+  --inverse-text-dim: rgba(237, 245, 250, 0.62);
+  --inverse-text-bright: rgba(237, 245, 250, 0.86);
+  --accent-inverse: var(--mint-500);
+  --muted-accent: var(--steel-500);
 
-  /* — Extra tekst-/decoratierol op een lichte ondergrond — */
-  --text-strong: var(--ink-900);
-  --muted-accent: var(--sage-400);
+  /* — Lichte secties: dezelfde tokens, omgekeerd. Zet .light op een sectie. — */
+  --light-bg: var(--paper-50);
+  --light-surface: var(--paper-0);
+  --light-text: var(--ink-900);
+  --light-muted: var(--steel-700);
+  --light-dim: var(--steel-800);
+  --light-accent: var(--flu-700);
+  --light-border: rgba(8, 18, 28, 0.14);
 
-  /* — Status (formulier- en meldingsfeedback) — */
-  --success: var(--moss-700);
-  --success-strong: var(--moss-900);
-  --success-veil: rgba(51, 66, 46, 0.08);
+  /* — Status — */
+  --success: var(--mint-500);
+  --success-strong: var(--mint-500);
+  --success-veil: rgba(37, 245, 206, 0.08);
   --danger: var(--wine-600);
-  --danger-strong: var(--wine-700);
-  --danger-veil: rgba(122, 46, 46, 0.07);
-  --danger-veil-soft: rgba(122, 46, 46, 0.05);
-  --danger-ring: rgba(122, 46, 46, 0.35);
+  --danger-strong: var(--wine-600);
+  --danger-veil: rgba(255, 107, 107, 0.1);
+  --danger-veil-soft: rgba(255, 107, 107, 0.07);
+  --danger-ring: rgba(255, 107, 107, 0.4);
 
-  /* — Doorschijnende laagjes op de --inverse-bg (nav-blur, randjes, hover) — */
-  --inverse-veil-nav: rgba(250, 248, 242, 0.78);
-  --inverse-border-soft: rgba(250, 248, 242, 0.4);
-  --inverse-underline: rgba(250, 248, 242, 0.35);
-  --inverse-hover: rgba(250, 248, 242, 0.1);
-  --inverse-hairline: rgba(250, 248, 242, 0.12);
-  --hairline: rgba(30, 27, 20, 0.08);
+  /* — Doorschijnende laagjes — */
+  --inverse-veil-nav: rgba(7, 13, 24, 0.68);
+  --inverse-border-soft: rgba(143, 163, 181, 0.32);
+  --inverse-underline: rgba(143, 163, 181, 0.35);
+  --inverse-hover: rgba(0, 232, 255, 0.08);
+  --inverse-hairline: rgba(143, 163, 181, 0.16);
+  --hairline: rgba(143, 163, 181, 0.14);
 
-  /* — Decoratieve gloed/schaduw rond de accentkleur (CTA-knop, hero) — */
-  --accent-veil: rgba(201, 138, 52, 0.28);
-  --accent-veil-strong: rgba(201, 138, 52, 0.5);
-  --accent-shadow: rgba(169, 114, 31, 0.55);
-  --accent-shadow-strong: rgba(169, 114, 31, 0.6);
-  --accent-ring: rgba(169, 114, 31, 0.35);
-  --brand-veil: rgba(68, 86, 66, 0.55);
-  --sheen: rgba(255, 255, 255, 0.6);
+  /* — Gloed rond het accent — */
+  --accent-veil: rgba(0, 232, 255, 0.22);
+  --accent-veil-strong: rgba(0, 232, 255, 0.4);
+  --accent-shadow: rgba(0, 232, 255, 0.35);
+  --accent-shadow-strong: rgba(0, 232, 255, 0.5);
+  --accent-ring: rgba(37, 245, 206, 0.6);
+  --brand-veil: rgba(0, 145, 255, 0.28);
+  --sheen: rgba(255, 255, 255, 0.55);
+  --glow: 0 0 34px rgba(0, 232, 255, 0.28);
 
-  /* — Type scale — */
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-body: "Work Sans", "Segoe UI", system-ui, sans-serif;
+  /* — Type — */
+  --font-display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --fs-eyebrow: 0.8125rem;
+  --fs-eyebrow: 0.69rem;   /* mono, uppercase, letterspaced */
   --fs-small: 0.9375rem;
   --fs-body: 1.0625rem;
-  --fs-lead: 1.25rem;
-  --fs-h3: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
-  --fs-h2: clamp(2rem, 1.5rem + 2.2vw, 3rem);
-  --fs-h1: clamp(2.75rem, 1.9rem + 3.8vw, 4.75rem);
+  --fs-lead: 1.15rem;
+  --fs-h3: clamp(1.22rem, 1.05rem + 0.8vw, 1.5rem);
+  --fs-h2: clamp(1.95rem, 1.4rem + 2.4vw, 3.4rem);
+  --fs-h1: clamp(2.5rem, 1.3rem + 5.2vw, 7.4rem);
 
-  /* — Spacing scale — */
+  /* — Spacing — */
   --sp-1: 0.25rem;
   --sp-2: 0.5rem;
   --sp-3: 0.75rem;
@@ -131,18 +126,27 @@
   --sp-9: 6.5rem;
   --sp-10: 9rem;
 
-  --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 28px;
-  --shadow-soft: 0 20px 50px -25px rgba(26, 23, 18, 0.35);
-  --shadow-lift: 0 28px 60px -20px rgba(26, 23, 18, 0.4);
+  /* — Vorm — "petal": rond linksboven en rechtsonder, scherp op de andere
+       twee hoeken. Bij hover kantelt de vorm naar de -alt variant. Dit is
+       de vormtaal van alles wat klikbaar is. — */
+  --petal: 28px 3px 28px 3px;
+  --petal-alt: 3px 28px 3px 28px;
+  --petal-s: 16px 2px 16px 2px;
+  --petal-s-alt: 2px 16px 2px 16px;
+  --radius-sm: 4px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --shadow-soft: 0 22px 60px -30px rgba(0, 0, 0, 0.8);
+  --shadow-lift: 0 30px 70px -22px rgba(0, 0, 0, 0.85);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* — Hoogte van de dissolve tussen een donkere en een lichte sectie — */
+  --bleed: clamp(190px, 32vh, 420px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--bg);
@@ -151,16 +155,27 @@ body {
   font-size: var(--fs-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
-  color: var(--ink-900);
+  color: var(--text-strong);
   margin: 0;
   text-wrap: balance;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
 }
 p { margin: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 section { scroll-margin-top: 5.5rem; }
+::selection { background: var(--accent); color: var(--bg); }
+
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent-inverse);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
