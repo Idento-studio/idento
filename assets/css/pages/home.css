@@ -362,8 +362,7 @@
 .review-dashboard-count { font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.02em; color: var(--text-muted); }
 .review-dashboard .arw { font-size: 1.3rem; color: var(--inverse-text-soft); transition: transform 0.5s var(--ease), color 0.3s ease; }
 .review-dashboard:hover .arw { transform: translateX(8px); color: var(--accent); }
-.reviews-attribution { margin-top: 14px; opacity: 0.55; }
-.reviews-attribution:empty { display: none; }
+.reviews-source { margin-top: 14px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
 
 
 /* ---------- PRIJSSIMULATOR ---------- */
