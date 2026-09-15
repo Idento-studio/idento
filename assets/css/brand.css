@@ -64,15 +64,6 @@
   --accent-inverse: var(--mint-500);
   --muted-accent: var(--steel-500);
 
-  /* — Lichte secties: dezelfde tokens, omgekeerd. Zet .light op een sectie. — */
-  --light-bg: var(--paper-50);
-  --light-surface: var(--paper-0);
-  --light-text: var(--ink-900);
-  --light-muted: var(--steel-700);
-  --light-dim: var(--steel-800);
-  --light-accent: var(--flu-700);
-  --light-border: rgba(8, 18, 28, 0.14);
-
   /* — Status — */
   --success: var(--mint-500);
   --success-strong: var(--mint-500);
@@ -140,9 +131,6 @@
   --shadow-soft: 0 22px 60px -30px rgba(0, 0, 0, 0.8);
   --shadow-lift: 0 30px 70px -22px rgba(0, 0, 0, 0.85);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* — Hoogte van de dissolve tussen een donkere en een lichte sectie — */
-  --bleed: clamp(190px, 32vh, 420px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }

@@ -8,22 +8,6 @@
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
 
-  /* ---------- naad-gloed tussen donker en licht ---------- */
-  (function () {
-    var seams = document.querySelectorAll('.seam');
-    if (!seams.length) return;
-    if (reduced || !('IntersectionObserver' in window)) {
-      seams.forEach(function (s) { s.classList.add('is-visible'); });
-      return;
-    }
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.4, rootMargin: '-8% 0px -8% 0px' });
-    seams.forEach(function (s) { io.observe(s); });
-  })();
-
   /* ---------- hero: regels rollen omhoog ---------- */
   (function () {
     if (reduced) return;

@@ -47,94 +47,6 @@
 .section-alt { background: var(--surface); }
 
 
-/* — Lichte secties: dezelfde tokens, omgekeerd, plus het ribbelpatroon —
-   Het patroon is de lijnenstructuur van een vingerafdruk: twee lagen
-   golvende hairlines op verschillende schaal, zodat de tegelherhaling
-   niet opvalt. Staat op ~2% dekking; je ziet het pas als je erop let. */
-.light {
-  --text: var(--light-text);
-  --text-strong: var(--light-text);
-  --text-muted: var(--light-muted);
-  --muted-accent: var(--light-dim);
-  --border: var(--light-border);
-  --hairline: rgba(8, 18, 28, 0.07);
-  --surface: var(--light-bg);
-  --surface-raised: var(--light-surface);
-  --accent: var(--light-accent);
-  --accent-ink: var(--light-accent);
-  --accent-inverse: var(--mint-700);
-  --inverse-text-soft: var(--light-dim);
-  --glow: 0 0 30px rgba(0, 116, 168, 0.22);
-  color: var(--light-text);
-  background-color: var(--light-bg);
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%230A1A2F' stroke-opacity='0.048' stroke-width='1'%3E%3Cpath d='M0 10 q15 -7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 30 q15 7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 50 q15 -7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 70 q15 7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 90 q15 -7 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 110 q15 7 30 0 t30 0 t30 0 t30 0'/%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%230089C7' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M0 20 q15 8 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 60 q15 -8 30 0 t30 0 t30 0 t30 0'/%3E%3Cpath d='M0 100 q15 8 30 0 t30 0 t30 0 t30 0'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 92px 92px, 143px 143px;
-}
-.light h1, .light h2, .light h3, .light h4 { color: var(--light-text); }
-
-/* Donkere kaart binnen een lichte sectie — daar mag de fluo weer knallen. */
-.dark-card {
-  --text: var(--steel-100);
-  --text-strong: #fff;
-  --text-muted: var(--steel-300);
-  --border: rgba(143, 163, 181, 0.2);
-  --accent: var(--flu-500);
-  --accent-ink: var(--flu-500);
-  background: var(--navy-900);
-  color: var(--steel-100);
-}
-.dark-card h1, .dark-card h2, .dark-card h3, .dark-card h4 { color: #fff; }
-
-
-/* — Zachte overgang donker ↔ licht —
-   Een harde snijlijn tussen bijna-zwart en bijna-wit is brutaal. De lichte
-   sectie komt daarom met een gradient in tien stops uit het donker omhoog,
-   met een cyaan gloed in de naad die opent zodra hij in beeld komt. */
-.bleed-top { padding-top: calc(var(--bleed) + clamp(56px, 8vh, 130px)); }
-.bleed-bottom { padding-bottom: calc(var(--bleed) + clamp(56px, 8vh, 130px)); }
-.bleed-top::before,
-.bleed-bottom::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0;
-  height: var(--bleed);
-  pointer-events: none;
-  z-index: 0;
-}
-.bleed-top::before {
-  top: 0;
-  background: linear-gradient(to bottom,
-    #070D18 0%, rgba(7,13,24,.93) 11%, rgba(7,13,24,.82) 22%, rgba(7,13,24,.66) 34%,
-    rgba(7,13,24,.48) 47%, rgba(7,13,24,.31) 60%, rgba(7,13,24,.17) 72%,
-    rgba(7,13,24,.08) 83%, rgba(7,13,24,.02) 93%, rgba(7,13,24,0) 100%);
-}
-.bleed-bottom::after {
-  bottom: 0;
-  background: linear-gradient(to top,
-    #070D18 0%, rgba(7,13,24,.93) 11%, rgba(7,13,24,.82) 22%, rgba(7,13,24,.66) 34%,
-    rgba(7,13,24,.48) 47%, rgba(7,13,24,.31) 60%, rgba(7,13,24,.17) 72%,
-    rgba(7,13,24,.08) 83%, rgba(7,13,24,.02) 93%, rgba(7,13,24,0) 100%);
-}
-.seam {
-  position: absolute;
-  left: 0; right: 0;
-  height: var(--bleed);
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(44% 64% at 50% 50%,
-    rgba(0,232,255,.17) 0%, rgba(37,245,206,.07) 44%, rgba(0,232,255,0) 74%);
-  opacity: 0;
-  transform: scaleY(.55) scaleX(.8);
-  transform-origin: center;
-  transition: opacity 1.2s ease, transform 1.5s var(--ease);
-}
-.seam-top { top: 0; }
-.seam-bottom { bottom: 0; }
-.seam.is-visible { opacity: 1; transform: scaleY(1) scaleX(1); }
-
-
 /* — Page header — compacte kop voor subpagina's (niet op de homepage) — */
 .page-header {
   position: relative;
@@ -365,5 +277,4 @@ html.js .reveal.is-visible { transform: none; }
   html.js .reveal { transition: none; transform: none; }
   .progress-bar-fill { transition: none; }
   .grain { animation: none; }
-  .seam { transition: none; opacity: 1; transform: none; }
 }

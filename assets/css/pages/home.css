@@ -399,6 +399,7 @@
 .quote-box {
   position: sticky;
   top: 110px;
+  background: var(--surface-raised);
   border: 1px solid rgba(143, 163, 181, 0.22);
   padding: clamp(28px, 3.6vw, 44px);
   border-radius: 52px 4px 52px 4px;
@@ -484,10 +485,6 @@
   .hero-cta .btn { flex: 1 1 auto; }
   /* regelbreedtes in ch zijn op desktop gezet; op een telefoon rammelen ze */
   .section h2, .hero h1 { max-width: none; }
-  /* kortere dissolve: 420px leegte is te veel scrollwerk op een telefoon */
-  :root { --bleed: clamp(140px, 22vh, 230px); }
-  .bleed-top { padding-top: calc(var(--bleed) + 26px); }
-  .bleed-bottom { padding-bottom: calc(var(--bleed) + 26px); }
   .section-head { flex-direction: column-reverse; align-items: flex-start; gap: 14px; margin-bottom: 34px; }
 }
 @media (max-width: 520px) {

@@ -103,10 +103,6 @@
 .btn-primary { background: var(--accent); color: var(--bg); }
 .btn-primary::before { background: var(--text); }
 .btn-primary:hover { color: var(--bg); }
-.light .btn-primary { color: var(--light-bg); }
-.light .btn-primary::before { background: var(--light-text); }
-.light .btn-primary:hover { color: var(--light-bg); }
-.light .btn:hover { color: var(--light-bg); }
 
 .btn-ghost,
 .btn-outline {
