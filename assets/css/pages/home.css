@@ -184,9 +184,6 @@
   color: var(--inverse-text-soft);
   white-space: nowrap;
 }
-.row-wide { grid-template-columns: clamp(120px, 15vw, 200px) 1fr auto; }
-.row-wide h3 { font-size: clamp(1.8rem, 5.4vw, 4rem); }
-
 
 /* ---------- LIVE CASE SHOWCASE ---------- */
 .demo {
