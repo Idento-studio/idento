@@ -91,7 +91,6 @@
         <nav class="nav-links-list" aria-label="Hoofdnavigatie">
           <a href="#aanpak">Aanpak</a>
           <a href="#live">Live</a>
-          <a href="#reviews">Reviews</a>
           <a href="#prijs">Prijs</a>
           <a href="#vragen">Vragen</a>
         </nav>
@@ -250,26 +249,6 @@
       </div>
     </section>
 
-    <!-- ===================== 04 · REVIEWS ===================== -->
-    <section class="section" id="reviews">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 class="h-lg reveal" style="max-width:12ch">Wat klanten zeggen</h2>
-        </div>
-
-        <a class="review-dashboard reveal" id="reviewDashboard"
-           href="https://search.google.com/local/reviews?placeid=ChIJw9HxaVDBw0cRuq8Tr03dsoA"
-           target="_blank" rel="noopener">
-          <span class="review-dashboard-rating" id="reviewRatingValue">•</span>
-          <span class="review-dashboard-body">
-            <span class="stars" aria-hidden="true" id="reviewStars"></span>
-            <span class="review-dashboard-count" id="reviewCount">Bekijk onze reviews op Google</span>
-          </span>
-          <span class="arw" aria-hidden="true">&rarr;</span>
-        </a>
-        <p class="reviews-source mono">Gegevens via Google</p>
-      </div>
-    </section>
 
     <!-- ===================== 05 · PRIJS ===================== -->
     <section class="section" id="prijs">
@@ -407,7 +386,6 @@
           <ul>
             <li><a href="#live">Werk</a></li>
             <li><a href="#traject">Traject</a></li>
-            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#prijs">Prijs</a></li>
             <li><a href="#vragen">Vragen</a></li>
           </ul>
@@ -430,9 +408,5 @@
 
   <script src="assets/js/site.js" defer></script>
   <script src="assets/js/home.js" defer></script>
-  <!-- Google Reviews: key is publiek zichtbaar in de broncode, dat hoort zo bij
-       de Maps JavaScript API — beveiliging zit in de HTTP-referrer restrictie
-       op deze key in Google Cloud Console (idento.be/*, *.github.io/*). -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOswWfsz4nNBmnOC0I71xI2fY1Bmy6rLs&libraries=places&callback=initReviews" defer></script>
 </body>
 </html>

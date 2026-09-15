@@ -399,29 +399,4 @@
       el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
     });
   });
-
-  /* ---------- Google reviews ----------
-     Callback voor de Maps JavaScript API (zie de script-tag onderaan
-     index.html). Gebruikt de nieuwe Place-klasse — PlacesService is
-     sinds maart 2025 niet meer beschikbaar voor nieuwe Google Cloud-
-     projecten. Zonder JS, of als het ophalen mislukt, blijft de kaart
-     gewoon een werkende link naar de reviews op Google. */
-  window.initReviews = function () {
-    if (!window.google || !google.maps.places || !google.maps.places.Place) return;
-
-    var place = new google.maps.places.Place({ id: 'ChIJw9HxaVDBw0cRuq8Tr03dsoA' });
-    place.fetchFields({ fields: ['rating', 'userRatingCount'] }).then(function () {
-      if (!place.rating) return;
-
-      var full = Math.round(place.rating);
-      var stars = '★★★★★'.slice(0, full) + '☆☆☆☆☆'.slice(0, 5 - full);
-
-      document.getElementById('reviewRatingValue').textContent = place.rating.toFixed(1).replace('.', ',');
-      document.getElementById('reviewStars').textContent = stars;
-      document.getElementById('reviewCount').textContent =
-        'op basis van ' + (place.userRatingCount || 0) + ' Google-reviews';
-    }).catch(function () {
-      /* stille fallback: de kaart blijft een werkende link naar Google */
-    });
-  };
 })();
