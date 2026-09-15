@@ -28,7 +28,7 @@
 }
 .hero > .wrap { position: relative; z-index: 1; }
 .hero .eyebrow { margin-bottom: clamp(26px, 4vw, 46px); }
-.hero h1 { max-width: 17ch; font-size: clamp(2.5rem, 8.4vw, 7.4rem); }
+.hero h1 { max-width: 17ch; }
 .sheen {
   background: linear-gradient(100deg, var(--flu-500) 12%, #9FF6FF 34%, var(--flu-600) 56%, var(--flu-500) 78%);
   background-size: 280% 100%;
