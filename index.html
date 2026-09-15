@@ -255,13 +255,18 @@
       <div class="wrap">
         <div class="section-head">
           <h2 class="h-lg reveal" style="max-width:12ch">Wat klanten zeggen</h2>
-          <p class="mono reveal" id="reviewsMeta">
-            <span id="reviewsRating"></span>
-            <a href="https://search.google.com/local/reviews?placeid=ChIJw9HxaVDBw0cRuq8Tr03dsoA" target="_blank" rel="noopener">Bekijk op Google <span class="arw">&rarr;</span></a>
-          </p>
         </div>
 
-        <div class="reviews-grid" id="reviewsGrid"></div>
+        <a class="review-dashboard reveal" id="reviewDashboard"
+           href="https://search.google.com/local/reviews?placeid=ChIJw9HxaVDBw0cRuq8Tr03dsoA"
+           target="_blank" rel="noopener">
+          <span class="review-dashboard-rating" id="reviewRatingValue">•</span>
+          <span class="review-dashboard-body">
+            <span class="stars" aria-hidden="true" id="reviewStars"></span>
+            <span class="review-dashboard-count" id="reviewCount">Bekijk onze reviews op Google</span>
+          </span>
+          <span class="arw" aria-hidden="true">&rarr;</span>
+        </a>
         <div class="reviews-attribution" id="reviewsAttribution" aria-hidden="true"></div>
       </div>
     </section>

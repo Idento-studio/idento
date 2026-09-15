@@ -403,52 +403,25 @@
   /* ---------- Google reviews ----------
      Callback voor de Maps JavaScript API (zie de script-tag onderaan
      index.html). Zonder JS, of als het ophalen mislukt, blijft de
-     "Bekijk op Google"-link in de sectiekop gewoon bruikbaar. */
+     kaart gewoon een werkende link naar de reviews op Google. */
   window.initReviews = function () {
-    var grid = document.getElementById('reviewsGrid');
     var attribution = document.getElementById('reviewsAttribution');
-    if (!grid || !attribution || !window.google || !google.maps.places) return;
+    if (!attribution || !window.google || !google.maps.places) return;
 
     var service = new google.maps.places.PlacesService(attribution);
     service.getDetails({
       placeId: 'ChIJw9HxaVDBw0cRuq8Tr03dsoA',
-      fields: ['rating', 'user_ratings_total', 'reviews']
+      fields: ['rating', 'user_ratings_total']
     }, function (place, status) {
-      if (status !== google.maps.places.PlacesServiceStatus.OK || !place) return;
-      renderReviews(place, grid);
+      if (status !== google.maps.places.PlacesServiceStatus.OK || !place || !place.rating) return;
+
+      var full = Math.round(place.rating);
+      var stars = '★★★★★'.slice(0, full) + '☆☆☆☆☆'.slice(0, 5 - full);
+
+      document.getElementById('reviewRatingValue').textContent = place.rating.toFixed(1).replace('.', ',');
+      document.getElementById('reviewStars').textContent = stars;
+      document.getElementById('reviewCount').textContent =
+        'op basis van ' + (place.user_ratings_total || 0) + ' Google-reviews';
     });
   };
-
-  function starString(rating) {
-    var full = Math.round(rating || 0);
-    return '★★★★★'.slice(0, full) + '☆☆☆☆☆'.slice(0, 5 - full);
-  }
-
-  function renderReviews(place, grid) {
-    var ratingEl = document.getElementById('reviewsRating');
-    if (ratingEl && place.rating) {
-      ratingEl.innerHTML = '<span class="stars" aria-hidden="true">' + starString(place.rating) + '</span> ' +
-        place.rating.toFixed(1).replace('.', ',') + ' / 5 op basis van ' + (place.user_ratings_total || 0) + ' reviews · ';
-    }
-
-    var reviews = (place.reviews || []).slice(0, 5);
-    if (!reviews.length) return;
-
-    grid.innerHTML = '';
-    reviews.forEach(function (r) {
-      var card = document.createElement('article');
-      card.className = 'review-card';
-      card.innerHTML =
-        '<span class="stars" aria-hidden="true">' + starString(r.rating) + '</span>' +
-        '<p class="review-text"></p>' +
-        '<div class="review-author">' +
-          (r.profile_photo_url ? '<img src="' + r.profile_photo_url + '" alt="" loading="lazy" width="36" height="36">' : '') +
-          '<div><b></b><span class="mono"></span></div>' +
-        '</div>';
-      card.querySelector('.review-text').textContent = r.text || '';
-      card.querySelector('.review-author b').textContent = r.author_name || '';
-      card.querySelector('.review-author .mono').textContent = r.relative_time_description || '';
-      grid.appendChild(card);
-    });
-  }
 })();
