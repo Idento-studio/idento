@@ -97,8 +97,8 @@
         var nx = p.x + vx, ny = p.y + vy;
         x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(nx, ny);
         if (p.h > 0.9)      { x.strokeStyle = 'rgba(37,245,206,.85)'; x.lineWidth = 1.3; }
-        else if (p.h > 0.7) { x.strokeStyle = 'rgba(56,91,255,.72)';  x.lineWidth = 1.1; }
-        else                { x.strokeStyle = 'rgba(34,71,242,.4)';   x.lineWidth = 0.8; }
+        else if (p.h > 0.7) { x.strokeStyle = 'rgba(60,120,240,.72)'; x.lineWidth = 1.1; }
+        else                { x.strokeStyle = 'rgba(18,87,227,.4)';   x.lineWidth = 0.8; }
         x.stroke();
         p.x = nx; p.y = ny; p.life--;
         if (p.life < 0 || p.x < -20 || p.x > W + 20 || p.y < -20 || p.y > H + 20) P[i] = spawn();

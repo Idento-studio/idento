@@ -11,7 +11,7 @@
   left: var(--sp-4);
   z-index: 100;
   background: var(--accent);
-  color: var(--bg);
+  color: var(--text-strong);
   padding: 0.7rem 1.2rem;
   border-radius: var(--radius-sm);
   font-size: var(--fs-small);
@@ -227,7 +227,7 @@ footer {
   transform: scaleX(0);
   transform-origin: left center;
   background: var(--flu-500);
-  box-shadow: 0 0 14px rgba(56, 91, 255, 0.9);
+  box-shadow: 0 0 14px rgba(60, 120, 240, 0.9);
   will-change: transform;
 }
 html.js .progress-bar-fill { transition: transform 0.12s linear; }
