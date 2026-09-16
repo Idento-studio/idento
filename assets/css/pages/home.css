@@ -146,46 +146,97 @@
   .media-banner { aspect-ratio: 4 / 3; margin-top: clamp(32px, 8vw, 48px); }
 }
 
-/* Speels fotoaccent naast de "Drie dingen..."-titel: kantelt in bij
-   scroll en drijft nadien zachtjes mee, zodat hij bij de kop hoort
-   in plaats van los in de ruimte te hangen. */
-.aanpak-photo {
-  position: relative;
-  flex-shrink: 0;
+/* Scoredashboard naast de "Drie dingen..."-titel: drie ringen die naar
+   100 tellen zodra ze in beeld scrollen. Geen kaart eromheen — de ringen
+   zweven los, in het groen van --success: dit is het streefdoel, niet
+   een gemeten score, en bij 100% verschijnt een vinkje als bevestiging. */
+.score-board {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(18px, 2.6vw, 36px);
   width: clamp(320px, 60%, 640px);
-  margin: 0;
+  flex-shrink: 0;
 }
-.aanpak-photo::before {
+.score-ring { display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
+.ring-visual { position: relative; width: clamp(72px, 8.5vw, 112px); aspect-ratio: 1; }
+.ring-visual::before {
   content: "";
   position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.09) 0%, var(--accent-veil) 55%, transparent 78%);
+  inset: -18%;
+  background: radial-gradient(circle, rgba(37, 245, 206, 0.22) 0%, transparent 72%);
   border-radius: 50%;
   z-index: 0;
   pointer-events: none;
 }
-.aanpak-photo img {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  border: 3px solid var(--surface-raised);
-  box-shadow: var(--shadow-lift);
-  transform: rotate(-3deg);
-  transition: transform 0.9s var(--ease);
+.ring-visual svg { position: relative; z-index: 1; display: block; width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring-track { fill: none; stroke: rgba(37, 245, 206, 0.16); stroke-width: 6; }
+.ring-fill {
+  fill: none;
+  stroke: var(--success);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 326.7;
+  filter: drop-shadow(0 0 6px rgba(37, 245, 206, 0.65));
+  /* Zonder JS meteen de correcte eindstand tonen — enkel html.js zet
+     hem terug op nul om vervolgens naar deze waarde te animeren. */
+  stroke-dashoffset: calc(326.7 * (1 - var(--score, 0) / 100));
 }
-html.js .aanpak-photo img { transform: rotate(-9deg) scale(0.82) translateY(26px); }
-html.js .aanpak-photo img.is-visible { transform: rotate(-3deg) scale(1) translateY(0); }
-@media (max-width: 640px) {
-  .aanpak-photo { width: 150px; }
-  .aanpak-photo img { aspect-ratio: 1 / 1; }
-}
+html.js .ring-fill { stroke-dashoffset: 326.7; transition: stroke-dashoffset 1.3s var(--ease); }
+html.js .ring-fill.is-visible { stroke-dashoffset: calc(326.7 * (1 - var(--score, 0) / 100)); }
 @media (prefers-reduced-motion: reduce) {
-  html.js .aanpak-photo img { transition: none; transform: rotate(-3deg) scale(1) translateY(0); }
+  html.js .ring-fill { transition: none; stroke-dashoffset: calc(326.7 * (1 - var(--score, 0) / 100)); }
+}
+.ring-value {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+  color: var(--success);
+  text-shadow: 0 0 14px rgba(37, 245, 206, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+.ring-check {
+  position: absolute;
+  z-index: 2;
+  top: -2px;
+  right: -2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--success);
+  color: var(--navy-950);
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 14px rgba(37, 245, 206, 0.75);
+  opacity: 1;
+  transform: scale(1);
+}
+html.js .ring-check {
+  opacity: 0;
+  transform: scale(0.2);
+  transition: opacity 0.35s ease, transform 0.55s cubic-bezier(.34, 1.7, .64, 1);
+}
+html.js .ring-check.is-visible { opacity: 1; transform: scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  html.js .ring-check { transition: none; opacity: 1; transform: scale(1); }
+}
+.ring-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+@media (max-width: 640px) {
+  .score-board { width: 100%; }
 }
 
 
@@ -291,7 +342,6 @@ html.js .aanpak-photo img.is-visible { transform: rotate(-3deg) scale(1) transla
   margin-top: 0.5em;
 }
 .case-nav { display: flex; align-items: center; gap: 18px; margin-top: 28px; flex-wrap: wrap; }
-.case-count { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.2em; color: var(--inverse-text-soft); }
 .case-split { height: 1px; background: var(--border); margin-top: 30px; }
 
 .dev-chips { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }

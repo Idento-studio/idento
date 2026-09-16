@@ -148,10 +148,43 @@
       <div class="wrap">
         <div class="section-head">
           <h2 class="h-lg reveal" style="max-width:13ch">Drie dingen waar we niet op toegeven</h2>
-          <!-- Tijdelijke stockfoto ter goedkeuring — vervang door eigen ontwerpwerk zodra beschikbaar. -->
-          <figure class="aanpak-photo" id="aanpakPhoto">
-            <img src="assets/img/statement-design.jpg" alt="Schetsen van een website-ontwerp naast een laptop, zorgvuldig voorbereid vóór de bouw start" loading="lazy" width="1000" height="500">
-          </figure>
+          <!-- Streefdoel, geen gemeten score: bij Idento is 100% de lat, geen
+               "gemiddeld goed genoeg". Vandaar dat alle drie naar 100 lopen. -->
+          <div class="score-board reveal" id="scoreBoard" role="img" aria-label="Streefdoel: Design, SEO en Prestaties elk op 100 van de 100">
+            <div class="score-ring" data-target="100">
+              <div class="ring-visual">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+                  <circle class="ring-fill" cx="60" cy="60" r="52" style="--score:100"></circle>
+                </svg>
+                <span class="ring-value">100</span>
+                <span class="ring-check" aria-hidden="true">&#10003;</span>
+              </div>
+              <span class="ring-label">Design</span>
+            </div>
+            <div class="score-ring" data-target="100">
+              <div class="ring-visual">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+                  <circle class="ring-fill" cx="60" cy="60" r="52" style="--score:100"></circle>
+                </svg>
+                <span class="ring-value">100</span>
+                <span class="ring-check" aria-hidden="true">&#10003;</span>
+              </div>
+              <span class="ring-label">SEO</span>
+            </div>
+            <div class="score-ring" data-target="100">
+              <div class="ring-visual">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+                  <circle class="ring-fill" cx="60" cy="60" r="52" style="--score:100"></circle>
+                </svg>
+                <span class="ring-value">100</span>
+                <span class="ring-check" aria-hidden="true">&#10003;</span>
+              </div>
+              <span class="ring-label">Prestaties</span>
+            </div>
+          </div>
         </div>
 
         <div class="rows">
@@ -193,7 +226,6 @@
 
             <div class="case-nav">
               <button class="btn" id="caseNext" type="button">Toon andere case <span class="arw">&rarr;</span></button>
-              <span class="case-count" id="caseCount">01 / 02</span>
             </div>
 
             <div class="case-split"></div>
@@ -218,7 +250,7 @@
                   <iframe id="caseSite" title="Live voorbeeld van een gerealiseerd project" loading="lazy" referrerpolicy="no-referrer"></iframe>
                 </div>
               </div>
-              <p class="fallback">Draaiende site in een echte viewport — <a id="caseLink" href="https://idento-studio.github.io/korst/" target="_blank" rel="noopener">open de volledige site</a></p>
+              <p class="fallback"><a id="caseLink" href="https://idento-studio.github.io/korst/" target="_blank" rel="noopener">open de volledige site</a></p>
             </div>
           </div>
         </div>

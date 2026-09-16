@@ -23,39 +23,44 @@
     });
   })();
 
-  /* ---------- aanpak-foto: speelse reveal + zachte parallax ---------- */
+  /* ---------- scoredashboard: ringen vullen + cijfer telt op ----------
+     De CSS-transitie op .ring-fill (getriggerd door .is-visible) tekent
+     de ring; hier lopen we enkel het cijfer in het midden gelijk mee. */
   (function () {
-    var wrap = document.getElementById('aanpakPhoto');
-    if (!wrap) return;
-    var img = wrap.querySelector('img');
-    if (!img) return;
+    var board = document.getElementById('scoreBoard');
+    if (!board) return;
+    var rings = board.querySelectorAll('.score-ring');
+    if (!rings.length) return;
+
+    function animateRing(ring) {
+      var target = parseInt(ring.getAttribute('data-target'), 10) || 0;
+      var fill = ring.querySelector('.ring-fill');
+      var valueEl = ring.querySelector('.ring-value');
+      var checkEl = ring.querySelector('.ring-check');
+      if (fill) fill.classList.add('is-visible');
+      if (reduced || !valueEl) return;
+      var start = null, dur = 1300;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        valueEl.textContent = Math.round(eased * target);
+        if (p < 1) { requestAnimationFrame(step); }
+        else if (checkEl) { checkEl.classList.add('is-visible'); }
+      }
+      requestAnimationFrame(step);
+    }
 
     if (!reduced && 'IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) { img.classList.add('is-visible'); io.unobserve(entry.target); }
+          if (entry.isIntersecting) { animateRing(entry.target); io.unobserve(entry.target); }
         });
-      }, { threshold: 0.35 });
-      io.observe(wrap);
-    } else {
-      img.classList.add('is-visible');
+      }, { threshold: 0.4 });
+      rings.forEach(function (r) { io.observe(r); });
+    } else if (!reduced) {
+      rings.forEach(animateRing);
     }
-    if (reduced) return;
-
-    var ticking = false;
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var rect = wrap.getBoundingClientRect();
-        var vh = window.innerHeight || document.documentElement.clientHeight;
-        var progress = (rect.top + rect.height / 2 - vh / 2) / vh;
-        wrap.style.transform = 'translateY(' + (progress * -26) + 'px)';
-        ticking = false;
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
   })();
 
   /* ---------- zachte lichtvlek achter de cursor ---------- */
@@ -349,10 +354,8 @@
     var titleEl = document.getElementById('caseTitle');
     var descEl = document.getElementById('caseDesc');
     var factsEl = document.getElementById('caseFacts');
-    var countEl = document.getElementById('caseCount');
     var nextBtn = document.getElementById('caseNext');
     var linkEl = document.getElementById('caseLink');
-    function pad2(n) { return n < 10 ? '0' + n : '' + n; }
 
     var DEV = { desktop: 1440, tablet: 834, mobile: 390 };
     /* Echte beeldverhoudingen per toestel — anders krijgt "mobiel" het platte
@@ -416,7 +419,6 @@
       if (urlEl) urlEl.textContent = c.urlLabel;
       if (linkEl) linkEl.href = c.url;
       if (factsEl) factsEl.innerHTML = c.facts.map(function (f) { return '<li>' + f + '</li>'; }).join('');
-      if (countEl) countEl.textContent = pad2(i + 1) + ' / ' + pad2(CASES.length);
       if (!first && !reduced) {
         [titleEl, descEl, factsEl].forEach(function (el) {
           if (!el) return;
@@ -432,18 +434,29 @@
       }
     }
 
+    /* Cases komen in willekeurige volgorde, nooit twee keer dezelfde na
+       elkaar — en zonder tellertje, want "5 / 12" wekt de indruk dat we
+       maar 12 sites ooit gebouwd hebben. */
+    function randomCaseIndex() {
+      if (CASES.length < 2) return 0;
+      var next;
+      do { next = Math.floor(Math.random() * CASES.length); } while (next === ci);
+      return next;
+    }
+
     document.querySelectorAll('.dchip').forEach(function (b) {
       b.addEventListener('click', function () { setDevice(b.getAttribute('data-device')); });
     });
     if (nextBtn) nextBtn.addEventListener('click', function () {
-      ci = (ci + 1) % CASES.length;
+      ci = randomCaseIndex();
       showCase(ci, false);
     });
 
     window.addEventListener('resize', measure);
     measure();
     setDevice('desktop', true);
-    showCase(0, true);
+    ci = Math.floor(Math.random() * CASES.length);
+    showCase(ci, true);
     /* Bewust geen automatisch doorlopen van desktop/tablet/mobiel: dat
        herschaalt de iframe van een externe klantsite om de paar seconden
        zonder dat iemand erom vraagt, en dat brak op sommige klantsites de
