@@ -239,6 +239,94 @@ html.js .ring-check.is-visible { opacity: 1; transform: scale(1); }
   .score-board { width: 100%; }
 }
 
+/* Horizontale tijdlijn naast "Onze aanpak..."-titel: dezelfde losse,
+   kaartloze en gloeiende opzet als het scoredashboard. De lijn tekent
+   zich in, de vijf stops lichten na elkaar op, en nadien reist er een
+   puls continu over de lijn — het "altijd transparant" letterlijk in
+   beweging. */
+.timeline { position: relative; width: clamp(320px, 62%, 680px); flex-shrink: 0; padding-top: 6px; }
+.timeline-line { display: block; width: 100%; height: 12px; overflow: visible; }
+.timeline-line-bg { fill: none; stroke: rgba(60, 120, 240, 0.16); stroke-width: 2.4; }
+.timeline-line-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px rgba(60, 120, 240, 0.6));
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+html.js .timeline-line-fill { stroke-dashoffset: 100; transition: stroke-dashoffset 1.8s var(--ease); }
+html.js .timeline-line-fill.is-visible { stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: reduce) {
+  html.js .timeline-line-fill { transition: none; stroke-dashoffset: 0; }
+}
+.timeline-nodes { display: flex; justify-content: space-between; margin-top: -18px; }
+.timeline-node { display: flex; flex-direction: column; align-items: center; gap: 9px; }
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  transition-delay: var(--d, 0s);
+  /* Zonder JS meteen "actief" tonen — enkel html.js dimt hem eerst om
+     daarna, gestaggerd per stop, weer op te lichten. */
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(60, 120, 240, 0.75);
+}
+html.js .timeline-dot {
+  transform: scale(0.4);
+  opacity: 0.4;
+  background: var(--surface-raised);
+  box-shadow: none;
+  transition: transform 0.45s cubic-bezier(.34, 1.7, .64, 1), opacity 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+html.js .timeline.is-visible .timeline-dot {
+  transform: scale(1);
+  opacity: 1;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(60, 120, 240, 0.75);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .timeline-dot { transition: none; }
+}
+.timeline-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.timeline-pulse {
+  position: absolute;
+  top: 1px;
+  left: 2%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-strong);
+  box-shadow: 0 0 10px 3px rgba(60, 120, 240, 0.9);
+  opacity: 0;
+  pointer-events: none;
+}
+html.js .timeline.is-visible .timeline-pulse {
+  animation: timeline-pulse-travel 3.6s ease-in-out 2.3s infinite;
+}
+@keyframes timeline-pulse-travel {
+  0% { left: 2%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 96%; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-pulse { display: none; }
+}
+@media (max-width: 640px) {
+  .timeline { width: 100%; }
+  .timeline-label { font-size: 0.54rem; }
+}
+
 
 /* ---------- LIJSTSECTIES (aanpak, traject, werk) ---------- */
 .rows { border-top: 1px solid var(--border); }

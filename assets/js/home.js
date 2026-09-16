@@ -63,6 +63,27 @@
     }
   })();
 
+  /* ---------- traject-tijdlijn: lijn tekent in, stops lichten na elkaar op ----------
+     Eén class-toggle stuurt alles aan; de stagger tussen de stops zit als
+     transition-delay (var(--d)) al in de CSS, niet in JS-timing. */
+  (function () {
+    var timeline = document.getElementById('trajectTimeline');
+    if (!timeline) return;
+
+    function reveal() { timeline.classList.add('is-visible'); }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { reveal(); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.4 });
+      io.observe(timeline);
+    } else {
+      reveal();
+    }
+  })();
+
   /* ---------- zachte lichtvlek achter de cursor ---------- */
   (function () {
     var spot = document.getElementById('spot');
