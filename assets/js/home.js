@@ -39,7 +39,7 @@
       var checkEl = ring.querySelector('.ring-check');
       if (fill) fill.classList.add('is-visible');
       if (reduced || !valueEl) return;
-      var start = null, dur = 1300;
+      var start = null, dur = 2400;
       function step(ts) {
         if (start === null) start = ts;
         var p = Math.min((ts - start) / dur, 1);
