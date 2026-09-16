@@ -120,7 +120,7 @@
 /* Woorden lichten op naarmate de zin door beeld scrollt. */
 .stmt w { display: inline-block; color: var(--inverse-text-soft); transition: color 0.35s linear; }
 .stmt w.is-on { color: var(--text-strong); }
-.stmt w.is-hi.is-on { color: var(--flu-500); text-shadow: 0 0 26px rgba(56, 91, 255, 0.45); }
+.stmt w.is-hi.is-on { color: var(--accent-ink); text-shadow: 0 0 26px rgba(56, 91, 255, 0.45); }
 .stmt-note {
   max-width: 34ch;
   color: var(--text-muted);
@@ -164,7 +164,7 @@
   color: var(--inverse-text-soft);
   transition: color 0.4s ease;
 }
-.row:hover .idx { color: var(--accent); }
+.row:hover .idx { color: var(--accent-ink); }
 .row h3 { font-size: clamp(1.5rem, 3.1vw, 2.5rem); transition: transform 0.55s var(--ease); }
 .row:hover h3 { transform: translateX(6px); }
 .row p { color: var(--text-muted); font-size: 0.97rem; max-width: 46ch; }
@@ -175,7 +175,7 @@
   flex: 0 0 auto;
   transition: color 0.4s ease, transform 0.55s var(--ease);
 }
-.row:hover .go { color: var(--accent); transform: translateX(10px); }
+.row:hover .go { color: var(--accent-ink); transform: translateX(10px); }
 .row .meta {
   font-family: var(--font-mono);
   font-size: 0.66rem;
@@ -250,7 +250,7 @@
   transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.4s ease, border-radius 0.55s var(--ease);
 }
 .dchip:hover { color: var(--text-strong); border-color: var(--accent); }
-.dchip.is-on { color: var(--accent); border-color: var(--accent); border-radius: var(--petal-s-alt); box-shadow: 0 0 20px var(--accent-veil); }
+.dchip.is-on { color: var(--accent-ink); border-color: var(--accent); border-radius: var(--petal-s-alt); box-shadow: 0 0 20px var(--accent-veil); }
 .readout {
   margin-top: 30px;
   border-top: 1px solid var(--border);
@@ -263,7 +263,7 @@
 .readout .w {
   font-family: var(--font-mono);
   font-size: 1.5rem;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-variant-numeric: tabular-nums;
   text-shadow: 0 0 26px var(--accent-veil);
 }
@@ -325,7 +325,7 @@
   text-transform: uppercase;
   color: var(--text-muted);
 }
-.fallback a { color: var(--accent); border-bottom: 1px solid var(--accent); text-decoration: none; }
+.fallback a { color: var(--accent-ink); border-bottom: 1px solid var(--accent); text-decoration: none; }
 @media (hover: none) { .fallback a { display: inline-block; padding-block: 8px; } }
 
 
@@ -356,15 +356,15 @@
 .chip span:hover { border-color: var(--accent); color: var(--text-strong); }
 .chip input:checked + span {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-ink);
   background: var(--inverse-hover);
   border-radius: var(--petal-s-alt);
   box-shadow: 0 0 22px var(--accent-veil);
 }
-.chip input:checked + span em { color: var(--accent); }
+.chip input:checked + span em { color: var(--accent-ink); }
 .chip input:focus-visible + span { outline: 2px solid var(--accent-inverse); outline-offset: 3px; }
 
-.rng-val { font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+.rng-val { font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent-ink); font-variant-numeric: tabular-nums; }
 .calc input[type=range] {
   -webkit-appearance: none;
   appearance: none;
@@ -413,7 +413,7 @@
   letter-spacing: -0.05em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
-  color: var(--flu-500);
+  color: var(--accent-ink);
   text-shadow: 0 0 46px rgba(56, 91, 255, 0.35);
 }
 .big-price i { font-style: normal; font-weight: 400; opacity: 0.5; }
@@ -458,7 +458,7 @@
   text-decoration: none;
   transition: color 0.35s ease, border-color 0.35s ease;
 }
-.cta-mail:hover { color: var(--accent); border-color: var(--accent); }
+.cta-mail:hover { color: var(--accent-ink); border-color: var(--accent); }
 .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: clamp(30px, 4vw, 48px); }
 
 

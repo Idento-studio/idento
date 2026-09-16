@@ -21,6 +21,7 @@
   --navy-900: #222631;   /* hoofdachtergrond */
   --navy-800: #0B1322;   /* verhoogde vlakken */
   --navy-700: #0D1626;
+  --flu-300:  #7B93FF;   /* lichte tint — enkel voor leestekst op donker */
   --flu-500:  #385BFF;   /* accentblauw — scherm */
   --flu-600:  #2247F2;
   --flu-700:  #1B3399;   /* leesbaar blauw op een lichte ondergrond */
@@ -47,7 +48,7 @@
   --text-muted: var(--steel-300);
   --border: rgba(143, 163, 181, 0.2);
   --accent: var(--flu-500);
-  --accent-ink: var(--flu-500);     /* let op: slechts ~3:1 op --bg, zie opmerking bij deze wijziging */
+  --accent-ink: var(--flu-300);     /* accent voor leestekst op --bg: 5,2:1 — --flu-500 zelf haalt maar ~3:1 */
   --brand: var(--flu-500);
 
   /* — Rollen op de "inverse" vlakken (nav, footer, page-header, info-card).

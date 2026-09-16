@@ -13,7 +13,7 @@
   font-weight: 500;
   color: var(--text-muted);
 }
-.mono .c { color: var(--accent); }
+.mono .c { color: var(--accent-ink); }
 
 /* — Eyebrow — */
 .eyebrow {
@@ -56,7 +56,7 @@
   font-size: 0.9rem;
   padding: 15px 30px;
   border: 1px solid var(--accent);
-  color: var(--accent);
+  color: var(--accent-ink);
   background: transparent;
   border-radius: var(--petal);
   text-decoration: none;
@@ -127,7 +127,7 @@
   padding-bottom: 6px;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
-.tlink:hover { color: var(--accent); border-color: var(--accent); }
+.tlink:hover { color: var(--accent-ink); border-color: var(--accent); }
 @media (hover: none) { .tlink { padding-block: 11px 9px; } }
 
 /* — Nav CTA: rustige puls rond de primaire knop — */
@@ -257,7 +257,7 @@
   color: var(--text-strong);
   transition: color 0.3s ease;
 }
-.faq-item summary:hover { color: var(--accent); }
+.faq-item summary:hover { color: var(--accent-ink); }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary .q { flex: 1 1 auto; min-width: 0; }
 .faq-item summary .faq-chevron {
@@ -337,7 +337,7 @@
 }
 .cookie-banner.is-visible { transform: translateY(0); }
 .cookie-banner p { font-size: var(--fs-small); color: var(--steel-300); line-height: 1.55; }
-.cookie-banner p a { color: var(--flu-500); font-weight: 700; }
+.cookie-banner p a { color: var(--accent-ink); font-weight: 700; }
 .cookie-actions { margin-top: var(--sp-4); display: flex; gap: var(--sp-3); flex-wrap: wrap; }
 .cookie-actions .btn { padding: 0.65rem 1.25rem; font-size: 0.85rem; }
 @media (max-width: 560px) { .cookie-banner { left: var(--sp-4); right: var(--sp-4); } }
