@@ -23,28 +23,34 @@
     });
   })();
 
-  /* ---------- scoredashboard: ringen vullen + cijfer telt op ----------
-     De CSS-transitie op .ring-fill (getriggerd door .is-visible) tekent
-     de ring; hier lopen we enkel het cijfer in het midden gelijk mee. */
+  /* ---------- scoredashboard: ring en cijfer animeren als één geheel ----------
+     Geen CSS-transitie: JS zet stroke-dashoffset élke frame op exact
+     dezelfde voortgang als het cijfer (50 -> 180° van de 360°-cirkel). */
   (function () {
     var board = document.getElementById('scoreBoard');
     if (!board) return;
     var rings = board.querySelectorAll('.score-ring');
     if (!rings.length) return;
+    var CIRC = 326.7;
 
     function animateRing(ring) {
       var target = parseInt(ring.getAttribute('data-target'), 10) || 0;
       var fill = ring.querySelector('.ring-fill');
       var valueEl = ring.querySelector('.ring-value');
       var checkEl = ring.querySelector('.ring-check');
-      if (fill) fill.classList.add('is-visible');
       if (reduced || !valueEl) return;
+      /* generatie-teller: als een hover de replay opnieuw start terwijl de
+         vorige telling nog loopt, stopt de oude lus zichzelf hieronder */
+      var gen = (ring._gen = (ring._gen || 0) + 1);
       var start = null, dur = 2400;
       function step(ts) {
+        if (ring._gen !== gen) return;
         if (start === null) start = ts;
         var p = Math.min((ts - start) / dur, 1);
         var eased = 1 - Math.pow(1 - p, 3);
-        valueEl.textContent = Math.round(eased * target);
+        var value = eased * target;
+        valueEl.textContent = Math.round(value);
+        if (fill) fill.style.strokeDashoffset = CIRC * (1 - value / 100);
         if (p < 1) { requestAnimationFrame(step); }
         else if (checkEl) { checkEl.classList.add('is-visible'); }
       }
@@ -61,6 +67,16 @@
     } else if (!reduced) {
       rings.forEach(animateRing);
     }
+
+    /* Hover speelt de animatie opnieuw af vanaf 0 — animateRing begint zijn
+       eerste frame altijd op waarde 0, dus gewoon opnieuw aanroepen volstaat. */
+    rings.forEach(function (r) {
+      r.addEventListener('mouseenter', function () {
+        var checkEl = r.querySelector('.ring-check');
+        if (checkEl) checkEl.classList.remove('is-visible');
+        animateRing(r);
+      });
+    });
   })();
 
   /* ---------- traject-tijdlijn: lijn tekent in, stops lichten na elkaar op ----------
@@ -83,6 +99,31 @@
       reveal();
     }
   })();
+
+  /* ---------- icoon <-> titel koppelen op hover + klik ----------
+     Aanpak: elke score-ring hoort bij het rijtje op dezelfde plek eronder.
+     Traject: elk tijdlijn-bolletje hoort bij de stap op dezelfde plek. Hover
+     op het icoon zet de rij in dezelfde "actief"-stand als een rechtstreekse
+     hover erop (.is-linked spiegelt de bestaande :hover-stijl van .row), en
+     een klik scrollt naar de titel van die rij. */
+  function linkHoverToRows(sectionId, iconSelector) {
+    var section = document.getElementById(sectionId);
+    if (!section) return;
+    var icons = section.querySelectorAll(iconSelector);
+    var rows = section.querySelectorAll('.rows > .row');
+    icons.forEach(function (icon, i) {
+      var row = rows[i];
+      if (!row) return;
+      icon.addEventListener('mouseenter', function () { row.classList.add('is-linked'); });
+      icon.addEventListener('mouseleave', function () { row.classList.remove('is-linked'); });
+      icon.addEventListener('click', function () {
+        var title = row.querySelector('h3') || row;
+        title.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+      });
+    });
+  }
+  linkHoverToRows('aanpak', '.score-ring');
+  linkHoverToRows('traject', '.timeline-node');
 
   /* ---------- zachte lichtvlek achter de cursor ---------- */
   (function () {
