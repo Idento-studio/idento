@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="43.076622mm"
+   height="14.545264mm"
+   viewBox="0 0 43.076622 14.545264"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="Idento-logo-white_text.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.74208053"
+     inkscape:cx="122.6282"
+     inkscape:cy="252.668"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient70"
+       id="linearGradient20"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.32166411,0,0,0.32166411,-115.4168,93.577)"
+       x1="584.18817"
+       y1="8.4705181"
+       x2="624.92456"
+       y2="-36.748676" />
+    <linearGradient
+       id="linearGradient70"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#3f79ee;stop-opacity:1;"
+         offset="0"
+         id="stop69" />
+      <stop
+         style="stop-color:#25f5ce;stop-opacity:1;"
+         offset="1"
+         id="stop70" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Laag 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-72.4958,-81.75627)">
+    <path
+       id="path20"
+       style="fill:url(#linearGradient20);stroke:none;stroke-width:0.00850434;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 79.0412,81.75627 a 6.5455019,6.5377687 0 0 0 -6.5454,6.53778 v 0 7.27947 h 0.01 a 0.72728796,0.72352575 0 0 0 0.7274,0.72358 0.72728796,0.72352575 0 0 0 0.7272,-0.72358 0.72728796,0.72352575 0 0 0 0,-0.0141 v -7.26535 h -6e-4 a 5.0929808,5.0869629 0 0 1 2.6052,-4.445 5.0929808,5.0869629 0 0 1 5.4942,0.34507 5.0929808,5.0869629 0 0 1 2.0767,4.09944 h -0.01 v 5.81852 h 0.018 a 0.72728796,0.72728796 0 0 1 0,0.004 0.72728796,0.72728796 0 0 1 -0.7273,0.72723 0.72728796,0.72728796 0 0 1 -0.7272,-0.72723 0.72728796,0.72728796 0 0 1 0,-0.004 h -6e-4 v -0.41955 -6.6e-4 -5.3983 h -0.01 a 3.6368796,3.6325828 0 0 0 -1.5507,-2.97591 3.6368796,3.6325828 0 0 0 -2.3327,-0.64844 3.6368796,3.6325828 0 0 0 -1.8394,0.64844 3.6368796,3.6325828 0 0 0 -1.5487,2.97591 v 0 5.81852 h 0.011 a 2.1818634,2.1818634 0 0 0 0.6741,1.5843 2.1818634,2.1818634 0 0 0 2.364,0.42486 2.1818634,2.1818634 0 0 0 1.3222,-2.00533 l -0.021,-0.004 h 0.025 V 88.29342 A 0.72728796,0.72352575 0 0 0 79.0554,87.57 0.72728796,0.72352575 0 0 0 78.328,88.29342 h -0.01 v 5.5602 0.18551 0.0728 0 a 0.72728796,0.72728796 0 0 1 0,0.004 0.72728796,0.72728796 0 0 1 -0.7274,0.72724 0.72728796,0.72728796 0 0 1 -0.7272,-0.72724 0.72728796,0.72728796 0 0 1 6e-4,-0.004 h -6e-4 v -0.51911 -5.29941 0 -0.015 h 0.01 a 2.1828063,2.1802271 0 0 1 0.1732,-0.85106 2.1828063,2.1802271 0 0 1 0.6844,-0.87999 2.1828063,2.1802271 0 0 1 2.7709,0.10022 2.1828063,2.1802271 0 0 1 0.7356,1.63083 h 6e-4 v 0.015 h -0.01 v 5.81852 h 0.01 a 2.182186,2.182186 0 0 0 0.7423,1.65029 2.182186,2.182186 0 0 0 2.3385,0.34407 2.182186,2.182186 0 0 0 1.2801,-1.98688 l -0.051,-0.007 h 0.048 v -5.81855 h -7e-4 a 6.5455019,6.5377687 0 0 0 -6.5457,-6.53725 z" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.7539px;line-height:1;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';text-decoration-color:#000000;letter-spacing:-0.529167px;word-spacing:0px;white-space:pre;fill:#ffffff;fill-opacity:1;stroke-width:0.0487693;stroke-linecap:round;paint-order:markers fill stroke"
+       x="88.04454"
+       y="92.463661"
+       id="text66"><tspan
+         sodipodi:role="line"
+         id="tspan66"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Manrope;-inkscape-font-specification:'Manrope Bold';letter-spacing:-0.529167px;fill:#ffffff;fill-opacity:1;stroke-width:0.0487693"
+         x="88.04454"
+         y="92.463661">Idento</tspan></text>
+  </g>
+</svg>

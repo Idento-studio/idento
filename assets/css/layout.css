@@ -117,18 +117,8 @@
   justify-content: space-between;
   height: 4.75rem;
 }
-.brand-mark {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: -0.06em;
-  color: var(--steel-100);
-}
-.brand-mark svg { flex-shrink: 0; }
+.brand-mark { display: flex; align-items: center; text-decoration: none; }
+.brand-logo { display: block; height: 26px; width: auto; flex-shrink: 0; }
 .nav-links { display: flex; align-items: center; gap: var(--sp-6); }
 .nav-links-list { display: flex; gap: clamp(16px, 2.4vw, 34px); }
 .nav-links-list a:not(.btn) {
@@ -188,8 +178,7 @@ footer {
 .footer-grid ul { display: flex; flex-direction: column; gap: 0.7rem; }
 .footer-grid a { font-size: var(--fs-small); color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
 .footer-grid a:hover { color: var(--accent-ink); }
-.footer-mark { display: flex; align-items: center; gap: 0.7rem; margin-bottom: var(--sp-4); }
-.footer-mark strong { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.05em; color: var(--steel-100); }
+.footer-mark { display: flex; align-items: center; margin-bottom: var(--sp-4); }
 .footer-inner,
 .footer-bottom {
   margin-top: clamp(44px, 6vw, 76px);
