@@ -205,6 +205,124 @@
       ]
     },
     {
+      title: 'VZW Kadee — vakantiekampen voor jongeren',
+      url: 'https://vzwkadee.be/',
+      urlLabel: 'vzwkadee.be',
+      desc: 'Kadee organiseert sinds 2017 themavakantiekampen en -weekends voor kinderen en ' +
+            'tieners, met een aparte werking voor hun vrijwilligers.',
+      facts: [
+        'Actief sinds 2017',
+        'Themaweken en -weekends voor kinderen en tieners',
+        'Eigen werking voor vrijwilligers'
+      ]
+    },
+    {
+      title: 'Restaurant Bazaar — Oeigoerse keuken, Borsbeek',
+      url: 'https://restaurant-bazaar.be/',
+      urlLabel: 'restaurant-bazaar.be',
+      desc: 'Restaurant Bazaar serveert authentieke Oeigoerse, Oezbeekse en Kazachse gerechten, ' +
+            'met handgetrokken noedels als huisspecialiteit — volledig halal en alcoholvrij.',
+      facts: [
+        'Handgetrokken noedels volgens eeuwenoude techniek',
+        '100% halal en alcoholvrij',
+        'Traditionele lage tafels of gewone tafels'
+      ]
+    },
+    {
+      title: 'NXT Accountants — boekhouding & fiscaliteit',
+      url: 'https://nxtaccountants.be/',
+      urlLabel: 'nxtaccountants.be',
+      desc: 'NXT Accountants combineert digitale samenwerking met persoonlijk advies: ' +
+            'boekhouding, fiscale optimalisatie, loonadministratie en financieel advies.',
+      facts: [
+        'Boekhouding, fiscaliteit, loonadministratie en advies',
+        'Drie kantoren: Dendermonde, Beveren, Sint-Denijs-Westrem',
+        'Digitale samenwerking met persoonlijke opvolging'
+      ]
+    },
+    {
+      title: 'Fjiero — videomarketing, Harelbeke',
+      url: 'https://fjiero.be/',
+      urlLabel: 'fjiero.be',
+      desc: 'Fjiero is een videomarketingbureau dat strategie, contentproductie, social media ' +
+            'en performance marketing combineert tot video\'s die meetbaar resultaat opleveren.',
+      facts: [
+        'Strategie, productie, social en performance marketing',
+        'Ook actief in recruitment marketing',
+        'Gevestigd in Harelbeke'
+      ]
+    },
+    {
+      title: 'Aan Zé — vakantieverblijf, Oostduinkerke',
+      url: 'https://aanze.be/',
+      urlLabel: 'aanze.be',
+      desc: 'Aan Zé is een stijlvol vakantieappartement met zeezicht in Oostduinkerke, ' +
+            'welkom voor gezinnen, kinderen en huisdieren.',
+      facts: [
+        'Zeezicht in Oostduinkerke',
+        'Welkom voor gezinnen en huisdieren'
+      ]
+    },
+    {
+      title: 'Yammi Yammi — Japans all-you-can-eat, Gent',
+      url: 'https://yammiyammi.be/',
+      urlLabel: 'yammiyammi.be',
+      desc: 'Yammi Yammi is een Japans all-you-can-eat restaurant in Gent: drie uur lang ' +
+            'sushi en grillgerechten aan een vaste prijs.',
+      facts: [
+        'All-you-can-eat, drie uur lang',
+        'Sushi én grillgerechten',
+        'Overpoortstraat, Gent'
+      ]
+    },
+    {
+      title: 'Kiné Pierreux — kinesitherapie, Halle',
+      url: 'https://kinepierreux.be/',
+      urlLabel: 'kinepierreux.be',
+      desc: 'Kiné Pierreux is een kinesitherapiepraktijk in Halle, gespecialiseerd in ' +
+            'sportletsels, manuele therapie, revalidatie en dry needling.',
+      facts: [
+        'Sportletsels en manuele therapie',
+        'Revalidatie en dry needling',
+        'Gevestigd in Halle'
+      ]
+    },
+    {
+      title: 'MB Autocenter — Duitse occasiewagens, Rumst',
+      url: 'https://mbautocenter.be/',
+      urlLabel: 'mbautocenter.be',
+      desc: 'MB Autocenter koopt, verkoopt en importeert Duitse occasiewagens — BMW, ' +
+            'Mercedes-Benz, Audi en Volkswagen — en neemt ook wagens in consignatie.',
+      facts: [
+        'Aan- en verkoop van BMW, Mercedes, Audi, Volkswagen',
+        'Ook wagens in consignatie',
+        'Gevestigd in Rumst'
+      ]
+    },
+    {
+      title: 'AJC Vitres — glas- & gevelreiniging',
+      url: 'https://ajcvitres.be/',
+      urlLabel: 'ajcvitres.be',
+      desc: 'AJC Vitres reinigt ramen, daken, zonnepanelen, terrassen en gevels voor ' +
+            'particulieren en bedrijven in Brussel en Vlaanderen.',
+      facts: [
+        'Ramen, daken, zonnepanelen, terrassen en gevels',
+        'Actief in Brussel en Vlaanderen'
+      ]
+    },
+    {
+      title: 'Tuinaanneming De Koster — tuinaanleg, Halle',
+      url: 'https://dekoster.be/',
+      urlLabel: 'dekoster.be',
+      desc: 'Tuinaanneming De Koster ontwerpt, legt aan en onderhoudt tuinen, met grond- en ' +
+            'infrastructuurwerken erbij — in nauw overleg met elke klant.',
+      facts: [
+        'Ontwerp, aanleg en onderhoud van tuinen',
+        'Grond- en infrastructuurwerken',
+        'Persoonlijk contact met elke klant'
+      ]
+    },
+    {
       title: 'Jouw volgende case',
       url: 'assets/demo/case-placeholder.html',
       urlLabel: 'nieuwe case — nog toe te voegen',
@@ -233,6 +351,8 @@
     var factsEl = document.getElementById('caseFacts');
     var countEl = document.getElementById('caseCount');
     var nextBtn = document.getElementById('caseNext');
+    var linkEl = document.getElementById('caseLink');
+    function pad2(n) { return n < 10 ? '0' + n : '' + n; }
 
     var DEV = { desktop: 1440, tablet: 834, mobile: 390 };
     var ORDER = ['desktop', 'tablet', 'mobile'];
@@ -289,8 +409,9 @@
       if (titleEl) titleEl.textContent = c.title;
       if (descEl) descEl.textContent = c.desc;
       if (urlEl) urlEl.textContent = c.urlLabel;
+      if (linkEl) linkEl.href = c.url;
       if (factsEl) factsEl.innerHTML = c.facts.map(function (f) { return '<li>' + f + '</li>'; }).join('');
-      if (countEl) countEl.textContent = ('0' + (i + 1)) + ' / ' + ('0' + CASES.length);
+      if (countEl) countEl.textContent = pad2(i + 1) + ' / ' + pad2(CASES.length);
       if (!first && !reduced) {
         [titleEl, descEl, factsEl].forEach(function (el) {
           if (!el) return;
