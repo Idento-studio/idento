@@ -227,7 +227,7 @@ footer {
   transform: scaleX(0);
   transform-origin: left center;
   background: var(--flu-500);
-  box-shadow: 0 0 14px rgba(0, 232, 255, 0.9);
+  box-shadow: 0 0 14px rgba(56, 91, 255, 0.9);
   will-change: transform;
 }
 html.js .progress-bar-fill { transition: transform 0.12s linear; }

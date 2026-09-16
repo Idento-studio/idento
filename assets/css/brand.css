@@ -4,14 +4,13 @@
    Wijzig hier en de hele site volgt. Bevat GEEN component- of paginastijlen.
 
    ── HUISSTIJL IDENTO ─────────────────────────────────────────────────────
-   Het palet komt uit het merkboek, met één afwijking: de schermkleuren zijn
-   fluorescerender dan de drukkleuren. Op een bijna-zwarte ondergrond zakt
-   #1BA8E0 weg; #00E8FF niet. Voor drukwerk gebruik je de merkboek-waarden:
+   Het schermaccent is een verzadigd blauw (#385BFF), losgekoppeld van het
+   fluo cyaan uit het merkboek. Voor drukwerk gebruik je de merkboek-waarden:
        Sky #1BA8E0 · Teal #2EC4B6 · Deep Navy #0A1A2F · Paper #F7F8F9
 
    De gradient sky → teal is voorbehouden aan het merk-icoon. Gebruik hem
    nooit als achtergrondvulling of decoratief element elders. In de UI komt
-   het cyaan terug als volle kleur.
+   het blauw terug als volle kleur.
    ========================================================================== */
 
 :root {
@@ -22,9 +21,9 @@
   --navy-900: #222631;   /* hoofdachtergrond */
   --navy-800: #0B1322;   /* verhoogde vlakken */
   --navy-700: #0D1626;
-  --flu-500:  #00E8FF;   /* fluo cyaan — scherm */
-  --flu-600:  #0091FF;
-  --flu-700:  #0074A8;   /* leesbaar cyaan op een lichte ondergrond */
+  --flu-500:  #385BFF;   /* accentblauw — scherm */
+  --flu-600:  #2247F2;
+  --flu-700:  #1B3399;   /* leesbaar blauw op een lichte ondergrond */
   --mint-500: #25F5CE;   /* fluo teal — scherm */
   --mint-700: #0FA894;
   --paper-50: #EFF4F8;   /* lichte secties */
@@ -48,7 +47,7 @@
   --text-muted: var(--steel-300);
   --border: rgba(143, 163, 181, 0.2);
   --accent: var(--flu-500);
-  --accent-ink: var(--flu-500);     /* accent voor kleine tekst op --bg: 12.9:1 */
+  --accent-ink: var(--flu-500);     /* let op: slechts ~3:1 op --bg, zie opmerking bij deze wijziging */
   --brand: var(--flu-500);
 
   /* — Rollen op de "inverse" vlakken (nav, footer, page-header, info-card).
@@ -78,19 +77,19 @@
   --inverse-veil-nav: rgba(7, 13, 24, 0.68);
   --inverse-border-soft: rgba(143, 163, 181, 0.32);
   --inverse-underline: rgba(143, 163, 181, 0.35);
-  --inverse-hover: rgba(0, 232, 255, 0.08);
+  --inverse-hover: rgba(56, 91, 255, 0.08);
   --inverse-hairline: rgba(143, 163, 181, 0.16);
   --hairline: rgba(143, 163, 181, 0.14);
 
   /* — Gloed rond het accent — */
-  --accent-veil: rgba(0, 232, 255, 0.22);
-  --accent-veil-strong: rgba(0, 232, 255, 0.4);
-  --accent-shadow: rgba(0, 232, 255, 0.35);
-  --accent-shadow-strong: rgba(0, 232, 255, 0.5);
+  --accent-veil: rgba(56, 91, 255, 0.22);
+  --accent-veil-strong: rgba(56, 91, 255, 0.4);
+  --accent-shadow: rgba(56, 91, 255, 0.35);
+  --accent-shadow-strong: rgba(56, 91, 255, 0.5);
   --accent-ring: rgba(37, 245, 206, 0.6);
-  --brand-veil: rgba(0, 145, 255, 0.28);
+  --brand-veil: rgba(34, 71, 242, 0.28);
   --sheen: rgba(255, 255, 255, 0.55);
-  --glow: 0 0 34px rgba(0, 232, 255, 0.28);
+  --glow: 0 0 34px rgba(56, 91, 255, 0.28);
 
   /* — Type — */
   --font-display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
