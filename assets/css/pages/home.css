@@ -146,6 +146,48 @@
   .media-banner { aspect-ratio: 4 / 3; margin-top: clamp(32px, 8vw, 48px); }
 }
 
+/* Speels fotoaccent naast de "Drie dingen..."-titel: kantelt in bij
+   scroll en drijft nadien zachtjes mee, zodat hij bij de kop hoort
+   in plaats van los in de ruimte te hangen. */
+.aanpak-photo {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(190px, 24vw, 300px);
+  margin: 0;
+}
+.aanpak-photo::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.09) 0%, var(--accent-veil) 55%, transparent 78%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+.aanpak-photo img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--surface-raised);
+  box-shadow: var(--shadow-lift);
+  transform: rotate(-3deg);
+  transition: transform 0.9s var(--ease);
+}
+html.js .aanpak-photo img { transform: rotate(-9deg) scale(0.82) translateY(26px); }
+html.js .aanpak-photo img.is-visible { transform: rotate(-3deg) scale(1) translateY(0); }
+@media (max-width: 640px) {
+  .aanpak-photo { width: 150px; }
+  .aanpak-photo img { aspect-ratio: 1 / 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .aanpak-photo img { transition: none; transform: rotate(-3deg) scale(1) translateY(0); }
+}
+
 
 /* ---------- LIJSTSECTIES (aanpak, traject, werk) ---------- */
 .rows { border-top: 1px solid var(--border); }

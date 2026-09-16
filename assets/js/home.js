@@ -23,6 +23,41 @@
     });
   })();
 
+  /* ---------- aanpak-foto: speelse reveal + zachte parallax ---------- */
+  (function () {
+    var wrap = document.getElementById('aanpakPhoto');
+    if (!wrap) return;
+    var img = wrap.querySelector('img');
+    if (!img) return;
+
+    if (!reduced && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { img.classList.add('is-visible'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.35 });
+      io.observe(wrap);
+    } else {
+      img.classList.add('is-visible');
+    }
+    if (reduced) return;
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var rect = wrap.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+        wrap.style.transform = 'translateY(' + (progress * -26) + 'px)';
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
   /* ---------- zachte lichtvlek achter de cursor ---------- */
   (function () {
     var spot = document.getElementById('spot');
