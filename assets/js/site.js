@@ -54,6 +54,7 @@
   var heroPhoto = document.getElementById('heroPhoto');
   var heroImg = heroPhoto ? heroPhoto.querySelector('img') : null;
   var stickyBar = document.getElementById('stickyBar');
+  var scrollTopBtn = document.getElementById('scrollTop');
   var ticking = false;
 
   function onScroll() {
@@ -66,6 +67,7 @@
 
       if (progressFill) progressFill.style.transform = 'scaleX(' + Math.min(scrollTop / scrollable, 1) + ')';
       if (navEl) navEl.classList.toggle('is-stuck', scrollTop > 10);
+      if (scrollTopBtn) scrollTopBtn.classList.toggle('is-visible', scrollTop > window.innerHeight * 0.6);
 
       if (heroEl) {
         var heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
@@ -79,4 +81,10 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+    });
+  }
 })();
