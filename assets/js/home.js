@@ -355,9 +355,11 @@
     function pad2(n) { return n < 10 ? '0' + n : '' + n; }
 
     var DEV = { desktop: 1440, tablet: 834, mobile: 390 };
-    var ORDER = ['desktop', 'tablet', 'mobile'];
+    /* Echte beeldverhoudingen per toestel — anders krijgt "mobiel" het platte
+       hoogtebudget van desktop en oogt hij veel te langgerekt. */
+    var DEV_H = { desktop: 900, tablet: 1112, mobile: 844 };
     var cur = 'desktop', scale = 0.6, VPH = 0, avail = 900, fit = false;
-    var w = DEV.desktop, raf = null, auto = null, manual = false, ci = 0;
+    var w = DEV.desktop, raf = null, ci = 0;
 
     function measure() {
       avail = Math.max(200, (stage ? stage.clientWidth : 900) - 4) - 28;  /* 28 = padding + rand */
@@ -366,7 +368,9 @@
          houden we het kader even groot en schaalt enkel de inhoud. */
       fit = avail < 430;
       scale = Math.max(0.18, Math.min(0.62, avail / DEV.desktop));
-      VPH = Math.round(Math.min(560, Math.max(300, window.innerHeight * 0.52)));
+      var maxH = Math.round(Math.min(620, Math.max(300, window.innerHeight * 0.58)));
+      var targetH = DEV_H[cur] || DEV_H.desktop;
+      VPH = Math.round(Math.min(maxH, targetH * (fit ? avail / DEV[cur] : scale)));
       paint();
     }
 
@@ -391,6 +395,7 @@
       document.querySelectorAll('.dchip').forEach(function (b) {
         b.classList.toggle('is-on', b.getAttribute('data-device') === cur);
       });
+      measure();
       var target = DEV[dev];
       if (raf) cancelAnimationFrame(raf);
       if (reduced || instant) { w = target; paint(); return; }
@@ -428,11 +433,7 @@
     }
 
     document.querySelectorAll('.dchip').forEach(function (b) {
-      b.addEventListener('click', function () {
-        manual = true;
-        if (auto) { clearInterval(auto); auto = null; }
-        setDevice(b.getAttribute('data-device'));
-      });
+      b.addEventListener('click', function () { setDevice(b.getAttribute('data-device')); });
     });
     if (nextBtn) nextBtn.addEventListener('click', function () {
       ci = (ci + 1) % CASES.length;
@@ -443,17 +444,11 @@
     measure();
     setDevice('desktop', true);
     showCase(0, true);
-
-    /* automatisch doorlopen tot de bezoeker zelf kiest */
-    if (!reduced && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function (en) {
-        if (en[0].isIntersecting && !manual && !auto) {
-          auto = setInterval(function () {
-            setDevice(ORDER[(ORDER.indexOf(cur) + 1) % ORDER.length]);
-          }, 3600);
-        } else if (!en[0].isIntersecting && auto) { clearInterval(auto); auto = null; }
-      }, { threshold: 0.35 }).observe(frame);
-    }
+    /* Bewust geen automatisch doorlopen van desktop/tablet/mobiel: dat
+       herschaalt de iframe van een externe klantsite om de paar seconden
+       zonder dat iemand erom vraagt, en dat brak op sommige klantsites de
+       eigen (lazy-load/hero-hoogte) JS — een deel van het scherm bleef dan
+       wit. Nu alleen resizen op een bewuste klik van de bezoeker. */
   })();
 
   /* ---------- prijssimulator ----------
